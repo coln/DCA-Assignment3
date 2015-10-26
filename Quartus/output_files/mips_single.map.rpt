@@ -1,5 +1,5 @@
 Analysis & Synthesis report for mips_single
-Mon Oct 26 16:52:13 2015
+Mon Oct 26 18:28:15 2015
 Quartus II 64-Bit Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
 
 
@@ -22,7 +22,7 @@ Quartus II 64-Bit Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
  14. Parameter Settings for User Entity Instance: instr_memory:U_INSTR_MEMORY|altsyncram:altsyncram_component
  15. Parameter Settings for User Entity Instance: program_counter:U_PC
  16. Parameter Settings for User Entity Instance: program_counter:U_PC|reg:U_REG
- 17. Parameter Settings for User Entity Instance: program_counter:U_PC|add:U_PC_ADD_4
+ 17. Parameter Settings for User Entity Instance: program_counter:U_PC|add:U_PC_ADD_1
  18. Parameter Settings for User Entity Instance: program_counter:U_PC|add:U_PC_ADD_IMM
  19. Parameter Settings for User Entity Instance: program_counter:U_PC|mux2:U_BRANCH_MUX
  20. Parameter Settings for User Entity Instance: program_counter:U_PC|mux2:U_JUMP_MUX
@@ -38,14 +38,12 @@ Quartus II 64-Bit Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
  30. Port Connectivity Checks: "alu:U_ALU|mux4:U_MUX4"
  31. Port Connectivity Checks: "alu:U_ALU"
  32. Port Connectivity Checks: "extender:U_EXTENDER"
- 33. Port Connectivity Checks: "control:U_CONTROL"
- 34. Port Connectivity Checks: "program_counter:U_PC|mux2:U_JUMP_MUX"
- 35. Port Connectivity Checks: "program_counter:U_PC|add:U_PC_ADD_IMM"
- 36. Port Connectivity Checks: "program_counter:U_PC|add:U_PC_ADD_4"
- 37. Port Connectivity Checks: "program_counter:U_PC|reg:U_REG"
- 38. Port Connectivity Checks: "program_counter:U_PC"
- 39. Elapsed Time Per Partition
- 40. Analysis & Synthesis Messages
+ 33. Port Connectivity Checks: "program_counter:U_PC|add:U_PC_ADD_IMM"
+ 34. Port Connectivity Checks: "program_counter:U_PC|add:U_PC_ADD_1"
+ 35. Port Connectivity Checks: "program_counter:U_PC|reg:U_REG"
+ 36. Port Connectivity Checks: "program_counter:U_PC"
+ 37. Elapsed Time Per Partition
+ 38. Analysis & Synthesis Messages
 
 
 
@@ -71,7 +69,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Oct 26 16:52:12 2015      ;
+; Analysis & Synthesis Status        ; Successful - Mon Oct 26 18:28:15 2015      ;
 ; Quartus II 64-Bit Version          ; 13.1.4 Build 182 03/12/2014 SJ Web Edition ;
 ; Revision Name                      ; mips_single                                ;
 ; Top-level Entity Name              ; mips_single                                ;
@@ -1290,9 +1288,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; reg_file:U_REG_FILE|reg_array[0][3]                                                                     ; Lost fanout        ;
 ; reg_file:U_REG_FILE|reg_array[0][2]                                                                     ; Lost fanout        ;
 ; reg_file:U_REG_FILE|reg_array[0][1]                                                                     ; Lost fanout        ;
-; program_counter:U_PC|reg:U_REG|Q[0..31]                                                                 ; Lost fanout        ;
+; program_counter:U_PC|reg:U_REG|Q[0..15]                                                                 ; Lost fanout        ;
 ; instr_memory:U_INSTR_MEMORY|altsyncram:altsyncram_component|altsyncram_ogs3:auto_generated|rden_a_store ; Lost fanout        ;
-; Total Number of Removed Registers = 1121                                                                ;                    ;
+; Total Number of Removed Registers = 1105                                                                ;                    ;
 +---------------------------------------------------------------------------------------------------------+--------------------+
 
 
@@ -1421,7 +1419,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +----------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: program_counter:U_PC|add:U_PC_ADD_4 ;
+; Parameter Settings for User Entity Instance: program_counter:U_PC|add:U_PC_ADD_1 ;
 +----------------+-------+---------------------------------------------------------+
 ; Parameter Name ; Value ; Type                                                    ;
 +----------------+-------+---------------------------------------------------------+
@@ -1652,24 +1650,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------+-------+----------+------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "control:U_CONTROL"                                                                    ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; Port   ; Type   ; Severity ; Details                                                                             ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; mem_rd ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------+
-; Port Connectivity Checks: "program_counter:U_PC|mux2:U_JUMP_MUX" ;
-+-----------+-------+----------+-----------------------------------+
-; Port      ; Type  ; Severity ; Details                           ;
-+-----------+-------+----------+-----------------------------------+
-; in1[1..0] ; Input ; Info     ; Stuck at GND                      ;
-+-----------+-------+----------+-----------------------------------+
-
-
 +----------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "program_counter:U_PC|add:U_PC_ADD_IMM"                                              ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
@@ -1681,13 +1661,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "program_counter:U_PC|add:U_PC_ADD_4"                                                      ;
+; Port Connectivity Checks: "program_counter:U_PC|add:U_PC_ADD_1"                                                      ;
 +------------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port       ; Type   ; Severity ; Details                                                                             ;
 +------------+--------+----------+-------------------------------------------------------------------------------------+
-; in1[31..3] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; in1[1..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
-; in1[2]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; in1[31..1] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; in1[0]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
 ; cin        ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; cout       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -1726,7 +1705,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
-    Info: Processing started: Mon Oct 26 16:52:07 2015
+    Info: Processing started: Mon Oct 26 18:28:11 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off mips_single -c mips_single
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file /users/colin/documents/uf/fall 2015/digital computer architecture/lab 3/control.vhd
@@ -1778,7 +1757,6 @@ Info (12127): Elaborating entity "mips_single" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at mips_single.vhd(38): object "alu_carry" assigned a value but never read
 Warning (10036): Verilog HDL or VHDL warning at mips_single.vhd(40): object "alu_sign" assigned a value but never read
 Warning (10036): Verilog HDL or VHDL warning at mips_single.vhd(41): object "alu_overflow" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at mips_single.vhd(55): object "ctrl_mem_rd" assigned a value but never read
 Info (12128): Elaborating entity "instr_memory" for hierarchy "instr_memory:U_INSTR_MEMORY"
 Info (12128): Elaborating entity "altsyncram" for hierarchy "instr_memory:U_INSTR_MEMORY|altsyncram:altsyncram_component"
 Info (12130): Elaborated megafunction instantiation "instr_memory:U_INSTR_MEMORY|altsyncram:altsyncram_component"
@@ -1838,11 +1816,10 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alts
 Info (12128): Elaborating entity "altsyncram_ogs3" for hierarchy "instr_memory:U_INSTR_MEMORY|altsyncram:altsyncram_component|altsyncram_ogs3:auto_generated"
 Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:U_PC"
 Info (12128): Elaborating entity "reg" for hierarchy "program_counter:U_PC|reg:U_REG"
-Info (12128): Elaborating entity "add" for hierarchy "program_counter:U_PC|add:U_PC_ADD_4"
-Info (12128): Elaborating entity "cla4" for hierarchy "program_counter:U_PC|add:U_PC_ADD_4|cla4:\U_ADD:1:U_CLA4"
+Info (12128): Elaborating entity "add" for hierarchy "program_counter:U_PC|add:U_PC_ADD_1"
+Info (12128): Elaborating entity "cla4" for hierarchy "program_counter:U_PC|add:U_PC_ADD_1|cla4:\U_ADD:1:U_CLA4"
 Info (12128): Elaborating entity "mux2" for hierarchy "program_counter:U_PC|mux2:U_BRANCH_MUX"
 Info (12128): Elaborating entity "control" for hierarchy "control:U_CONTROL"
-Warning (10541): VHDL Signal Declaration warning at control.vhd(15): used implicit default value for signal "mem_rd" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Info (12128): Elaborating entity "mux2" for hierarchy "mux2:U_DEST_MUX"
 Info (12128): Elaborating entity "reg_file" for hierarchy "reg_file:U_REG_FILE"
 Info (12128): Elaborating entity "extender" for hierarchy "extender:U_EXTENDER"
@@ -1974,7 +1951,7 @@ Warning (14284): Synthesized away the following node(s):
         Warning (14320): Synthesized away node "instr_memory:U_INSTR_MEMORY|altsyncram:altsyncram_component|altsyncram_ogs3:auto_generated|q_a[29]"
         Warning (14320): Synthesized away node "instr_memory:U_INSTR_MEMORY|altsyncram:altsyncram_component|altsyncram_ogs3:auto_generated|q_a[30]"
         Warning (14320): Synthesized away node "instr_memory:U_INSTR_MEMORY|altsyncram:altsyncram_component|altsyncram_ogs3:auto_generated|q_a[31]"
-Info (17049): 1121 registers lost all their fanouts during netlist optimizations.
+Info (17049): 1105 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
@@ -1983,10 +1960,10 @@ Warning (21074): Design contains 2 input pin(s) that do not drive logic
 Info (21057): Implemented 2 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 0 output pins
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 77 warnings
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 75 warnings
     Info: Peak virtual memory: 619 megabytes
-    Info: Processing ended: Mon Oct 26 16:52:13 2015
-    Info: Elapsed time: 00:00:06
+    Info: Processing ended: Mon Oct 26 18:28:15 2015
+    Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:02
 
 

@@ -24,7 +24,7 @@ end entity;
 
 architecture arch of program_counter is
 	signal pc_reg_output : std_logic_vector(WIDTH-1 downto 0);
-	signal pc_inc4_output : std_logic_vector(WIDTH-1 downto 0);
+	signal pc_inc1_output : std_logic_vector(WIDTH-1 downto 0);
 	signal pc_immediate_output : std_logic_vector(WIDTH-1 downto 0);
 	signal branch_mux_sel : std_logic;
 	signal pc_branch_output : std_logic_vector(WIDTH-1 downto 0);
@@ -32,8 +32,8 @@ architecture arch of program_counter is
 	signal next_pc : std_logic_vector(WIDTH-1 downto 0);
 begin
 	
-	-- Since instructions are 32-bits (4 bytes) wide, we don't need the last LSBs
-	pc <= pc_reg_output(WIDTH-1 downto 2) & "00";
+	-- Set PC to 0x00400000 on reset
+	pc <= INSTR_BASE_ADDR(31 downto 16) & pc_reg_output(15 downto 0);
 	
 	-- Increment PC on falling edge
 	U_REG : entity work.reg
@@ -48,15 +48,16 @@ begin
 			clr => rst
 		);
 	
-	-- Add 4 because MIPS instructions are 4-bytes long
-	U_PC_ADD_4 : entity work.add 
+	-- Although MIPS increments the PC by 4, since the memory is 32-bits wide,
+	-- We only need to increment the PC by 1 and can multiplex the bytes later
+	U_PC_ADD_1 : entity work.add 
 		generic map (
 			WIDTH => WIDTH
 		)
 		port map (
 			in0 => pc_reg_output,
-			in1 => int2slv(4, WIDTH),
-			sum => pc_inc4_output,
+			in1 => int2slv(1, WIDTH),
+			sum => pc_inc1_output,
 			cin => '0'
 		);
 	
@@ -66,7 +67,7 @@ begin
 			WIDTH => WIDTH
 		)
 		port map (
-			in0 => pc_inc4_output,
+			in0 => pc_inc1_output,
 			in1 => immediate,
 			sum => pc_immediate_output,
 			cin => '0'
@@ -81,14 +82,14 @@ begin
 		)
 		port map (
 			sel => branch_mux_sel,
-			in0 => pc_inc4_output,
+			in0 => pc_inc1_output,
 			in1 => pc_immediate_output,
 			output => pc_branch_output
 		);
 	
 	-- Selects between pc_branch_output and jump_output
-	-- New jump address is PC[31:28] & JMP[25:2] & "00", shifting left by 2 for word boundary
-	new_jump_address <= pc_reg_output(WIDTH-1 downto JTYPE_ADDRESS_WIDTH + 2) & jump_address & "00";
+	-- New jump address is PC[31:26] & JMP[25:0]
+	new_jump_address <= pc_reg_output(WIDTH-1 downto JTYPE_ADDRESS_WIDTH) & jump_address;
 	U_JUMP_MUX : entity work.mux2
 		generic map (
 			WIDTH => WIDTH

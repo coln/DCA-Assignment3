@@ -5,7 +5,7 @@ use work.lib.all;
 
 entity mips_single is
 	generic (
-		WIDTH : positive := 32
+		WIDTH : positive := DATA_WIDTH
 	);
 	port (
 		clk : in std_logic;
@@ -41,7 +41,7 @@ architecture arch of mips_single is
 	signal alu_overflow : std_logic;
 	
 	-- Memory
-	signal data_en : std_logic;
+	signal data_read_en : std_logic;
 	signal data_write_en : std_logic;
 	signal data_mem_output : std_logic_vector(WIDTH-1 downto 0);
 	
@@ -186,15 +186,15 @@ begin
 	
 	-- Altsyncram Data Memory Module
 	-- Again, due to simulation only use part of output as address
-	-- Maps to 0x10000000
-	data_en <= bool2logic(alu_output(31 downto 10) = x"10000" & "00");
-	data_write_en <= data_en and ctrl_mem_wr;
+	-- Maps to DATA_BASE_ADDR (0x10000000)
+	data_read_en <= ctrl_mem_rd and bool2logic(alu_output(31 downto 8) = DATA_BASE_ADDR(31 downto 8));
+	data_write_en <= ctrl_mem_wr and bool2logic(alu_output(31 downto 8) = DATA_BASE_ADDR(31 downto 8));
 	U_DATA_MEMORY : entity work.data_memory
 		port map (
-			address => alu_output(9 downto 2),
+			address => alu_output(7 downto 0),
 			clock => clk,
 			data => reg_output_B,
-			rden => data_en,
+			rden => data_read_en,
 			wren => data_write_en,
 			q => data_mem_output
 		);

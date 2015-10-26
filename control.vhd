@@ -29,6 +29,7 @@ begin
 		reg_wr <= '0';
 		alu_src <= '0';
 		alu_op <= (others => '0');
+		mem_rd <= '0';
 		mem_wr <= '0';
 		mem2reg <= '0';
 		

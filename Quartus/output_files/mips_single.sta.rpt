@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for mips_single
-Mon Oct 26 16:52:47 2015
+Mon Oct 26 18:28:47 2015
 Quartus II 64-Bit Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
 
 
@@ -342,7 +342,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
-    Info: Processing started: Mon Oct 26 16:52:44 2015
+    Info: Processing started: Mon Oct 26 18:28:44 2015
 Info: Command: quartus_sta mips_single -c mips_single
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -391,7 +391,7 @@ Info (332101): Design is fully constrained for setup requirements
 Info (332101): Design is fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 5 warnings
     Info: Peak virtual memory: 594 megabytes
-    Info: Processing ended: Mon Oct 26 16:52:47 2015
+    Info: Processing ended: Mon Oct 26 18:28:47 2015
     Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:02
 

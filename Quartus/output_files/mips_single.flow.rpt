@@ -1,5 +1,5 @@
 Flow report for mips_single
-Mon Oct 26 16:52:50 2015
+Mon Oct 26 18:28:49 2015
 Quartus II 64-Bit Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
 
 
@@ -40,7 +40,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Flow Summary                                                                    ;
 +------------------------------------+--------------------------------------------+
-; Flow Status                        ; Successful - Mon Oct 26 16:52:50 2015      ;
+; Flow Status                        ; Successful - Mon Oct 26 18:28:49 2015      ;
 ; Quartus II 64-Bit Version          ; 13.1.4 Build 182 03/12/2014 SJ Web Edition ;
 ; Revision Name                      ; mips_single                                ;
 ; Top-level Entity Name              ; mips_single                                ;
@@ -68,7 +68,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/26/2015 16:52:08 ;
+; Start date & time ; 10/26/2015 18:28:12 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; mips_single         ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 128454786070115.144589272806476       ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 128454786070115.144589849203380       ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                  ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                ; <None>        ; --          ; --             ;
 ; IP_TOOL_NAME                        ; RAM: 1-PORT                           ; --            ; --          ; --             ;
@@ -105,12 +105,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:05     ; 1.0                     ; 615 MB              ; 00:00:02                           ;
-; Fitter                    ; 00:00:20     ; 1.0                     ; 1063 MB             ; 00:00:17                           ;
+; Analysis & Synthesis      ; 00:00:03     ; 1.0                     ; 615 MB              ; 00:00:02                           ;
+; Fitter                    ; 00:00:19     ; 1.0                     ; 1075 MB             ; 00:00:18                           ;
 ; Assembler                 ; 00:00:06     ; 1.0                     ; 543 MB              ; 00:00:06                           ;
 ; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 594 MB              ; 00:00:02                           ;
 ; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 490 MB              ; 00:00:01                           ;
-; Total                     ; 00:00:35     ; --                      ; --                  ; 00:00:28                           ;
+; Total                     ; 00:00:32     ; --                      ; --                  ; 00:00:29                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

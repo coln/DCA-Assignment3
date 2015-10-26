@@ -5,6 +5,9 @@ use ieee.math_real.all;
 
 package lib is
 	
+	-- Data Constant
+	constant DATA_WIDTH : positive := 32;
+	
 	-- Global Instruction Constants
 	constant OPCODE_WIDTH : positive := 6;
 	constant RS_WIDTH : positive := 5;
@@ -49,6 +52,10 @@ package lib is
 	constant OPCODE_SH : std_logic_vector(OPCODE_RANGE) := "101001";
 	constant OPCODE_SW : std_logic_vector(OPCODE_RANGE) := "101011";
 	
+	
+	-- Program Counter
+	constant INSTR_BASE_ADDR : std_logic_vector(DATA_WIDTH-1 downto 0) := x"00400000";
+	constant DATA_BASE_ADDR : std_logic_vector(DATA_WIDTH-1 downto 0) := x"10000000";
 	
 	-- Controller Constants
 	-- ALUop

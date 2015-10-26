@@ -542,37 +542,37 @@ immediate[28] => add:U_PC_ADD_IMM.in1[28]
 immediate[29] => add:U_PC_ADD_IMM.in1[29]
 immediate[30] => add:U_PC_ADD_IMM.in1[30]
 immediate[31] => add:U_PC_ADD_IMM.in1[31]
-jump_address[0] => mux2:U_JUMP_MUX.in1[2]
-jump_address[1] => mux2:U_JUMP_MUX.in1[3]
-jump_address[2] => mux2:U_JUMP_MUX.in1[4]
-jump_address[3] => mux2:U_JUMP_MUX.in1[5]
-jump_address[4] => mux2:U_JUMP_MUX.in1[6]
-jump_address[5] => mux2:U_JUMP_MUX.in1[7]
-jump_address[6] => mux2:U_JUMP_MUX.in1[8]
-jump_address[7] => mux2:U_JUMP_MUX.in1[9]
-jump_address[8] => mux2:U_JUMP_MUX.in1[10]
-jump_address[9] => mux2:U_JUMP_MUX.in1[11]
-jump_address[10] => mux2:U_JUMP_MUX.in1[12]
-jump_address[11] => mux2:U_JUMP_MUX.in1[13]
-jump_address[12] => mux2:U_JUMP_MUX.in1[14]
-jump_address[13] => mux2:U_JUMP_MUX.in1[15]
-jump_address[14] => mux2:U_JUMP_MUX.in1[16]
-jump_address[15] => mux2:U_JUMP_MUX.in1[17]
-jump_address[16] => mux2:U_JUMP_MUX.in1[18]
-jump_address[17] => mux2:U_JUMP_MUX.in1[19]
-jump_address[18] => mux2:U_JUMP_MUX.in1[20]
-jump_address[19] => mux2:U_JUMP_MUX.in1[21]
-jump_address[20] => mux2:U_JUMP_MUX.in1[22]
-jump_address[21] => mux2:U_JUMP_MUX.in1[23]
-jump_address[22] => mux2:U_JUMP_MUX.in1[24]
-jump_address[23] => mux2:U_JUMP_MUX.in1[25]
-jump_address[24] => mux2:U_JUMP_MUX.in1[26]
-jump_address[25] => mux2:U_JUMP_MUX.in1[27]
+jump_address[0] => mux2:U_JUMP_MUX.in1[0]
+jump_address[1] => mux2:U_JUMP_MUX.in1[1]
+jump_address[2] => mux2:U_JUMP_MUX.in1[2]
+jump_address[3] => mux2:U_JUMP_MUX.in1[3]
+jump_address[4] => mux2:U_JUMP_MUX.in1[4]
+jump_address[5] => mux2:U_JUMP_MUX.in1[5]
+jump_address[6] => mux2:U_JUMP_MUX.in1[6]
+jump_address[7] => mux2:U_JUMP_MUX.in1[7]
+jump_address[8] => mux2:U_JUMP_MUX.in1[8]
+jump_address[9] => mux2:U_JUMP_MUX.in1[9]
+jump_address[10] => mux2:U_JUMP_MUX.in1[10]
+jump_address[11] => mux2:U_JUMP_MUX.in1[11]
+jump_address[12] => mux2:U_JUMP_MUX.in1[12]
+jump_address[13] => mux2:U_JUMP_MUX.in1[13]
+jump_address[14] => mux2:U_JUMP_MUX.in1[14]
+jump_address[15] => mux2:U_JUMP_MUX.in1[15]
+jump_address[16] => mux2:U_JUMP_MUX.in1[16]
+jump_address[17] => mux2:U_JUMP_MUX.in1[17]
+jump_address[18] => mux2:U_JUMP_MUX.in1[18]
+jump_address[19] => mux2:U_JUMP_MUX.in1[19]
+jump_address[20] => mux2:U_JUMP_MUX.in1[20]
+jump_address[21] => mux2:U_JUMP_MUX.in1[21]
+jump_address[22] => mux2:U_JUMP_MUX.in1[22]
+jump_address[23] => mux2:U_JUMP_MUX.in1[23]
+jump_address[24] => mux2:U_JUMP_MUX.in1[24]
+jump_address[25] => mux2:U_JUMP_MUX.in1[25]
 branch => branch_mux_sel.IN0
 jump => mux2:U_JUMP_MUX.sel
 zero => branch_mux_sel.IN1
-pc[0] <= <GND>
-pc[1] <= <GND>
+pc[0] <= reg:U_REG.Q[0]
+pc[1] <= reg:U_REG.Q[1]
 pc[2] <= reg:U_REG.Q[2]
 pc[3] <= reg:U_REG.Q[3]
 pc[4] <= reg:U_REG.Q[4]
@@ -587,22 +587,22 @@ pc[12] <= reg:U_REG.Q[12]
 pc[13] <= reg:U_REG.Q[13]
 pc[14] <= reg:U_REG.Q[14]
 pc[15] <= reg:U_REG.Q[15]
-pc[16] <= reg:U_REG.Q[16]
-pc[17] <= reg:U_REG.Q[17]
-pc[18] <= reg:U_REG.Q[18]
-pc[19] <= reg:U_REG.Q[19]
-pc[20] <= reg:U_REG.Q[20]
-pc[21] <= reg:U_REG.Q[21]
-pc[22] <= reg:U_REG.Q[22]
-pc[23] <= reg:U_REG.Q[23]
-pc[24] <= reg:U_REG.Q[24]
-pc[25] <= reg:U_REG.Q[25]
-pc[26] <= reg:U_REG.Q[26]
-pc[27] <= reg:U_REG.Q[27]
-pc[28] <= reg:U_REG.Q[28]
-pc[29] <= reg:U_REG.Q[29]
-pc[30] <= reg:U_REG.Q[30]
-pc[31] <= reg:U_REG.Q[31]
+pc[16] <= <GND>
+pc[17] <= <GND>
+pc[18] <= <GND>
+pc[19] <= <GND>
+pc[20] <= <GND>
+pc[21] <= <GND>
+pc[22] <= <VCC>
+pc[23] <= <GND>
+pc[24] <= <GND>
+pc[25] <= <GND>
+pc[26] <= <GND>
+pc[27] <= <GND>
+pc[28] <= <GND>
+pc[29] <= <GND>
+pc[30] <= <GND>
+pc[31] <= <GND>
 
 
 |mips_single|program_counter:U_PC|reg:U_REG
@@ -768,7 +768,7 @@ clr => Q[30]~reg0.ACLR
 clr => Q[31]~reg0.ACLR
 
 
-|mips_single|program_counter:U_PC|add:U_PC_ADD_4
+|mips_single|program_counter:U_PC|add:U_PC_ADD_1
 in0[0] => cla4:U_ADD:1:U_CLA4.in0[0]
 in0[1] => cla4:U_ADD:1:U_CLA4.in0[1]
 in0[2] => cla4:U_ADD:1:U_CLA4.in0[2]
@@ -869,7 +869,7 @@ cin => cla4:U_ADD:1:U_CLA4.cin
 cout <= cla4:U_ADD:8:U_CLA4.cout
 
 
-|mips_single|program_counter:U_PC|add:U_PC_ADD_4|cla4:\U_ADD:1:U_CLA4
+|mips_single|program_counter:U_PC|add:U_PC_ADD_1|cla4:\U_ADD:1:U_CLA4
 in0[0] => g[0].IN0
 in0[0] => p[0].IN0
 in0[1] => g[1].IN0
@@ -898,7 +898,7 @@ cin => sum.IN1
 cout <= carry.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mips_single|program_counter:U_PC|add:U_PC_ADD_4|cla4:\U_ADD:2:U_CLA4
+|mips_single|program_counter:U_PC|add:U_PC_ADD_1|cla4:\U_ADD:2:U_CLA4
 in0[0] => g[0].IN0
 in0[0] => p[0].IN0
 in0[1] => g[1].IN0
@@ -927,7 +927,7 @@ cin => sum.IN1
 cout <= carry.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mips_single|program_counter:U_PC|add:U_PC_ADD_4|cla4:\U_ADD:3:U_CLA4
+|mips_single|program_counter:U_PC|add:U_PC_ADD_1|cla4:\U_ADD:3:U_CLA4
 in0[0] => g[0].IN0
 in0[0] => p[0].IN0
 in0[1] => g[1].IN0
@@ -956,7 +956,7 @@ cin => sum.IN1
 cout <= carry.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mips_single|program_counter:U_PC|add:U_PC_ADD_4|cla4:\U_ADD:4:U_CLA4
+|mips_single|program_counter:U_PC|add:U_PC_ADD_1|cla4:\U_ADD:4:U_CLA4
 in0[0] => g[0].IN0
 in0[0] => p[0].IN0
 in0[1] => g[1].IN0
@@ -985,7 +985,7 @@ cin => sum.IN1
 cout <= carry.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mips_single|program_counter:U_PC|add:U_PC_ADD_4|cla4:\U_ADD:5:U_CLA4
+|mips_single|program_counter:U_PC|add:U_PC_ADD_1|cla4:\U_ADD:5:U_CLA4
 in0[0] => g[0].IN0
 in0[0] => p[0].IN0
 in0[1] => g[1].IN0
@@ -1014,7 +1014,7 @@ cin => sum.IN1
 cout <= carry.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mips_single|program_counter:U_PC|add:U_PC_ADD_4|cla4:\U_ADD:6:U_CLA4
+|mips_single|program_counter:U_PC|add:U_PC_ADD_1|cla4:\U_ADD:6:U_CLA4
 in0[0] => g[0].IN0
 in0[0] => p[0].IN0
 in0[1] => g[1].IN0
@@ -1043,7 +1043,7 @@ cin => sum.IN1
 cout <= carry.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mips_single|program_counter:U_PC|add:U_PC_ADD_4|cla4:\U_ADD:7:U_CLA4
+|mips_single|program_counter:U_PC|add:U_PC_ADD_1|cla4:\U_ADD:7:U_CLA4
 in0[0] => g[0].IN0
 in0[0] => p[0].IN0
 in0[1] => g[1].IN0
@@ -1072,7 +1072,7 @@ cin => sum.IN1
 cout <= carry.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mips_single|program_counter:U_PC|add:U_PC_ADD_4|cla4:\U_ADD:8:U_CLA4
+|mips_single|program_counter:U_PC|add:U_PC_ADD_1|cla4:\U_ADD:8:U_CLA4
 in0[0] => g[0].IN0
 in0[0] => p[0].IN0
 in0[1] => g[1].IN0
@@ -1735,7 +1735,7 @@ alu_src <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
 alu_op[0] <= <GND>
 alu_op[1] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
 alu_op[2] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
-mem_rd <= comb.DB_MAX_OUTPUT_PORT_TYPE
+mem_rd <= <GND>
 mem_wr <= <GND>
 mem2reg <= <GND>
 
