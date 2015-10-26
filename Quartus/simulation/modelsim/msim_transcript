@@ -1,0 +1,231 @@
+# Reading C:/Program Files/Altera/13.1/modelsim_ase/tcl/vsim/pref.tcl 
+# do mips_single_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\Program Files\Altera\13.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\Program Files\Altera\13.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/lib.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package MATH_REAL
+# -- Compiling package lib
+# -- Compiling package body lib
+# -- Loading package lib
+# vcom -93 -work work {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/reg.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity reg
+# -- Compiling architecture arch of reg
+# vcom -93 -work work {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/extender.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity extender
+# -- Compiling architecture arch of extender
+# vcom -93 -work work {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/cla4.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity cla4
+# -- Compiling architecture arch of cla4
+# vcom -93 -work work {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/Quartus/data_memory.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package altera_mf_components
+# -- Compiling entity data_memory
+# -- Compiling architecture SYN of data_memory
+# vcom -93 -work work {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/Quartus/instr_memory.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package altera_mf_components
+# -- Compiling entity instr_memory
+# -- Compiling architecture SYN of instr_memory
+# vcom -93 -work work {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/control.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package MATH_REAL
+# -- Loading package lib
+# -- Compiling entity control
+# -- Compiling architecture arch of control
+# vcom -93 -work work {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mux2.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package MATH_REAL
+# -- Loading package lib
+# -- Compiling entity mux2
+# -- Compiling architecture arch of mux2
+# vcom -93 -work work {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/reg_file.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package MATH_REAL
+# -- Loading package lib
+# -- Compiling entity reg_file
+# -- Compiling architecture arch of reg_file
+# vcom -93 -work work {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mux4.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package MATH_REAL
+# -- Loading package lib
+# -- Compiling entity mux4
+# -- Compiling architecture arch of mux4
+# vcom -93 -work work {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/alu_control.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package MATH_REAL
+# -- Loading package lib
+# -- Compiling entity alu_control
+# -- Compiling architecture arch of alu_control
+# vcom -93 -work work {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/add.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity add
+# -- Compiling architecture arch of add
+# -- Loading entity cla4
+# vcom -93 -work work {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/program_counter.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package MATH_REAL
+# -- Loading package lib
+# -- Compiling entity program_counter
+# -- Compiling architecture arch of program_counter
+# -- Loading entity reg
+# -- Loading entity add
+# -- Loading entity mux2
+# vcom -93 -work work {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/alu.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package MATH_REAL
+# -- Loading package lib
+# -- Compiling entity alu
+# -- Compiling architecture arch of alu
+# -- Loading entity mux4
+# vcom -93 -work work {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mips_single.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package MATH_REAL
+# -- Loading package lib
+# -- Compiling entity mips_single
+# -- Compiling architecture arch of mips_single
+# -- Loading package altera_mf_components
+# -- Loading entity instr_memory
+# -- Loading entity program_counter
+# -- Loading entity control
+# -- Loading entity mux2
+# -- Loading entity reg_file
+# -- Loading entity extender
+# -- Loading entity alu_control
+# -- Loading entity alu
+# -- Loading entity data_memory
+# 
+vcom -reportprogress 300 -work work {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mips_single_tb.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity mips_single_tb
+# -- Compiling architecture arch of mips_single_tb
+# -- Loading package NUMERIC_STD
+# -- Loading package MATH_REAL
+# -- Loading package lib
+# -- Loading entity mips_single
+vsim work.mips_single_tb
+# vsim work.mips_single_tb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.lib(body)
+# Loading work.mips_single_tb(arch)
+# Loading altera_mf.altera_mf_components
+# Loading work.mips_single(arch)
+# Loading work.instr_memory(syn)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading altera_mf.altera_common_conversion(body)
+# Loading altera_mf.altera_device_families(body)
+# Loading altera_mf.altsyncram(translated)
+# Loading work.program_counter(arch)
+# Loading work.reg(arch)
+# Loading work.add(arch)
+# Loading work.cla4(arch)
+# Loading work.mux2(arch)
+# Loading work.control(arch)
+# Loading work.reg_file(arch)
+# Loading work.extender(arch)
+# Loading work.alu_control(arch)
+# Loading work.alu(arch)
+# Loading work.mux4(arch)
+# Loading work.data_memory(syn)
+# ** Warning: (vsim-8683) Uninitialized out port /mips_single_tb/U_MIPS_SINGLE/U_CONTROL/mem_rd has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 
+add wave -position end  sim:/mips_single_tb/clk
+add wave -position end  sim:/mips_single_tb/rst
+add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/pc
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 30 ns  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 30 ns  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 30 ns  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
