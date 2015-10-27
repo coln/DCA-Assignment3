@@ -37,6 +37,7 @@ class Assembler:
    BASE_ADDRESS = 0x00400000
    WIDTH = 32
    DEPTH = 256
+   COMMENT_CHAR = ';'
 
    registers = [
       "zero",   # 0
@@ -215,7 +216,12 @@ class Assembler:
    def processLine(self, line):
       line = line.lower()
       line = line.strip()
-      line = line.split(" ")
+      line = line.split(self.COMMENT_CHAR, 1)[0]  # Remove comments
+      line = line.split(" ")  # Separate components
+      
+      # Empty line
+      if len(line) == 1 and line[0] == '':
+         return
       
       # Gather all labels
       if line[0][-1] == ":":
@@ -245,10 +251,15 @@ class Assembler:
    def assembleLine(self, line):
       """ Where the magic happens """
       line = line.strip()
-      line = line.split(" ")
+      line = line.split(self.COMMENT_CHAR, 1)[0]  # Remove comments
+      line = line.split(" ")  # Split line into parts
+      
+      # Empty line
+      if len(line) == 1 and line[0] == '':
+         return
       
       # Skip label definitions and don't count line number
-      if(line[0][-1] == ":"):
+      if line[0][-1] == ":":
          self.line_number -= 1
          return
       

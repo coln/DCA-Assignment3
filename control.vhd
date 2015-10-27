@@ -48,6 +48,18 @@ begin
 				reg_wr <= '1';
 				alu_src <= '1';
 				alu_op <= CTRL_ALU_OP_OR;
+			
+			when OPCODE_SW =>
+				alu_src <= '1';
+				alu_op <= CTRL_ALU_OP_ADD;
+				mem_wr <= '1';
+			
+			when OPCODE_LW =>
+				reg_wr <= '1';
+				alu_src <= '1';
+				alu_op <= CTRL_ALU_OP_ADD;
+				mem2reg <= '1';
+				
 				
 			when others => null;
 		end case;

@@ -25,7 +25,7 @@ begin
 		wait for 25 ns;
 		rst <= '0';
 		
-		wait for 100 ns;
+		wait for 200 ns;
 		
 		done <= '1';
 		wait;
