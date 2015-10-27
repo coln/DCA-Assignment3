@@ -1,11 +1,11 @@
-# Reading C:/Program Files/Altera/13.1/modelsim_ase/tcl/vsim/pref.tcl 
+# Reading C:/Altera/13.1/modelsim_ase/tcl/vsim/pref.tcl 
 # do mips_single_run_msim_rtl_vhdl.do 
 # if {[file exists rtl_work]} {
 # 	vdel -lib rtl_work -all
 # }
 # vlib rtl_work
 # vmap work rtl_work
-# Modifying C:\Program Files\Altera\13.1\modelsim_ase\win32aloem/../modelsim.ini
+# Modifying C:\altera\13.1\modelsim_ase\modelsim.ini
 # 
 # vcom -93 -work work {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/lib.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -158,24 +158,6 @@
 # -- Loading entity alu
 # -- Loading entity data_memory
 # 
-vcom -reportprogress 300 -work work {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/program_counter_tb.vhd}
-# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Loading package MATH_REAL
-# -- Loading package lib
-# -- Compiling entity mips_single_tb
-# -- Compiling architecture arch of mips_single_tb
-# -- Loading entity program_counter
-# ** Error: C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/program_counter_tb.vhd(52): Illegal target for signal assignment.
-# ** Error: C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/program_counter_tb.vhd(52): (vcom-1136) Unknown identifier "br".
-# 
-# ** Error: C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/program_counter_tb.vhd(56): Illegal target for signal assignment.
-# ** Error: C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/program_counter_tb.vhd(56): (vcom-1136) Unknown identifier "br".
-# 
-# ** Error: C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/program_counter_tb.vhd(72): VHDL Compiler exiting
 vcom -reportprogress 300 -work work {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mips_single_tb.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
@@ -217,12 +199,24 @@ vsim work.mips_single_tb
 # Loading work.mux4(arch)
 # Loading work.data_memory(syn)
 add wave -position end  sim:/mips_single_tb/clk
+add wave -position end  sim:/mips_single_tb/mem_clk
 add wave -position end  sim:/mips_single_tb/rst
 add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/pc
 add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/instruction
-add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/reg_output_A
-add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/reg_output_B
-add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/U_REG_FILE/reg_array
+add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/U_REG_FILE/reg_array(7)
+add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/U_REG_FILE/reg_array(6)
+add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/U_REG_FILE/reg_array(5)
+add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/U_REG_FILE/reg_array(4)
+add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/U_REG_FILE/reg_array(3)
+add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/U_REG_FILE/reg_array(2)
+add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/U_REG_FILE/reg_array(1)
+add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/U_REG_FILE/reg_array(0)
+add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/U_DATA_MEMORY/address
+add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/U_DATA_MEMORY/clock
+add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/U_DATA_MEMORY/data
+add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/U_DATA_MEMORY/rden
+add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/U_DATA_MEMORY/wren
+add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/U_DATA_MEMORY/q
 run -all
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
@@ -236,13 +230,100 @@ run -all
 #    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
 #    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 10 ns  Iteration: 7  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+vcom -reportprogress 300 -work work {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mips_single_tb.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity mips_single_tb
+# -- Compiling architecture arch of mips_single_tb
+# -- Loading package NUMERIC_STD
+# -- Loading package MATH_REAL
+# -- Loading package lib
+# -- Loading entity mips_single
+restart
+# Loading work.mips_single_tb(arch)
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
 # ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
-#    Time: 10 ns  Iteration: 7  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 10 ns  Iteration: 8  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 30 ns  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+vcom -reportprogress 300 -work work {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mips_single_tb.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity mips_single_tb
+# -- Compiling architecture arch of mips_single_tb
+# -- Loading package NUMERIC_STD
+# -- Loading package MATH_REAL
+# -- Loading package lib
+# -- Loading entity mips_single
+restart
+# Loading work.mips_single_tb(arch)
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+add wave -position 5  sim:/mips_single_tb/U_MIPS_SINGLE/U_ALU/inA
+add wave -position 6  sim:/mips_single_tb/U_MIPS_SINGLE/U_ALU/inB
+add wave -position 7  sim:/mips_single_tb/U_MIPS_SINGLE/U_ALU/output
+restart
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/U_REG_FILE/rr0
+add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/U_REG_FILE/rr1
+add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/U_REG_FILE/q0
+add wave -position end  sim:/mips_single_tb/U_MIPS_SINGLE/U_REG_FILE/q1

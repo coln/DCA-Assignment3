@@ -1,6 +1,6 @@
 Assembler report for mips_single
-Mon Oct 26 19:56:00 2015
-Quartus II 64-Bit Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
+Tue Oct 27 13:33:50 2015
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
 ---------------------
@@ -18,7 +18,7 @@ Quartus II 64-Bit Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 1991-2014 Altera Corporation
+Copyright (C) 1991-2013 Altera Corporation
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -37,7 +37,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Mon Oct 26 19:56:00 2015 ;
+; Assembler Status      ; Successful - Tue Oct 27 13:33:50 2015 ;
 ; Revision Name         ; mips_single                           ;
 ; Top-level Entity Name ; mips_single                           ;
 ; Family                ; Cyclone IV GX                         ;
@@ -92,8 +92,8 @@ applicable agreement for further details.
 ; Option         ; Setting                                                                                                                 ;
 +----------------+-------------------------------------------------------------------------------------------------------------------------+
 ; Device         ; EP4CGX150DF31I7                                                                                                         ;
-; JTAG usercode  ; 0x00720CD4                                                                                                              ;
-; Checksum       ; 0x00720CD4                                                                                                              ;
+; JTAG usercode  ; 0x00720CCF                                                                                                              ;
+; Checksum       ; 0x00720CCF                                                                                                              ;
 +----------------+-------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -102,15 +102,15 @@ applicable agreement for further details.
 +--------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
-    Info: Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
-    Info: Processing started: Mon Oct 26 19:55:53 2015
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Tue Oct 27 13:33:41 2015
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off mips_single -c mips_single
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 551 megabytes
-    Info: Processing ended: Mon Oct 26 19:56:00 2015
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:06
+    Info: Peak virtual memory: 560 megabytes
+    Info: Processing ended: Tue Oct 27 13:33:50 2015
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:08
 
 

@@ -3,18 +3,23 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.lib.all;
 
+-- MIPS single-cycle processor implementation
+-- clk and rst - Main processor
+-- mem_clk - Memory clock (should be ~3-4 times faster)
 entity mips_single is
 	generic (
 		WIDTH : positive := DATA_WIDTH
 	);
 	port (
 		clk : in std_logic;
+		mem_clk : in std_logic;
 		rst : in std_logic
 	);
 end entity;
 
 architecture arch of mips_single is
 	signal notclk : std_logic;
+	signal notmem_clk : std_logic;
 	signal instruction : std_logic_vector(WIDTH-1 downto 0);
 	
 	signal pc : std_logic_vector(WIDTH-1 downto 0);
@@ -59,22 +64,24 @@ begin
 	
 	-- Inverse of clk
 	notclk <= not clk;
+	notmem_clk <= not mem_clk;
 	
 	-- Altsyncram Memory Module (from Quartus Megawizard plugin)
 	-- Since this is a simulation, the memory module is only 256 locations deep
 	-- Maps to memory location 0x00400000
-	pc_en <= bool2logic(pc(31 downto 8) = x"004000");
+	pc_en <= not rst and bool2logic(pc(31 downto 8) = x"004000");
 	
 	U_INSTR_MEMORY : entity work.instr_memory
 		port map (
 			address => pc(7 downto 0),
-			clock => clk,
+			clock => mem_clk,
 			rden => pc_en,
 			q => instruction
 		);
 	
 	-- Program Counter (updates on falling edge)
 	-- Shift the extender output left by two for the word address boundary
+	-- Update the PC on the falling edge
 	extender_output_shifted <= std_logic_vector(SHIFT_LEFT(unsigned(extender_output), 2));
 	U_PC : entity work.program_counter
 		generic map (
@@ -187,12 +194,16 @@ begin
 	-- Altsyncram Data Memory Module
 	-- Again, due to simulation only use part of output as address
 	-- Maps to DATA_BASE_ADDR (0x10000000)
-	data_read_en <= ctrl_mem_rd and bool2logic(alu_output(31 downto 8) = DATA_BASE_ADDR(31 downto 8));
-	data_write_en <= ctrl_mem_wr and bool2logic(alu_output(31 downto 8) = DATA_BASE_ADDR(31 downto 8));
+	data_read_en <= not rst
+					and ctrl_mem_rd
+					and bool2logic(alu_output(31 downto 8) = DATA_BASE_ADDR(31 downto 8));
+	data_write_en <= not rst
+					 and ctrl_mem_wr
+					 and bool2logic(alu_output(31 downto 8) = DATA_BASE_ADDR(31 downto 8));
 	U_DATA_MEMORY : entity work.data_memory
 		port map (
 			address => alu_output(7 downto 0),
-			clock => clk,
+			clock => mem_clk,
 			data => reg_output_B,
 			rden => data_read_en,
 			wren => data_write_en,

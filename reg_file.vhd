@@ -46,6 +46,8 @@ begin
 		
 		if(rst = '1') then
 			-- The write code below will take care of reseting the registers
+			q0 <= (others => '0');
+			q1 <= (others => '0');
 			
 		elsif(rising_edge(clk)) then
 			read_addr0 := to_integer(unsigned(rr0));
