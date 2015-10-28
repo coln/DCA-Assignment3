@@ -1,0 +1,13 @@
+Tue Oct 27 21:03:27 Eastern Daylight Time 2015
+Trace back: invalid command name ".main_pane.cs.1.pw"
+    while executing
+"$w cget -opaqueresize"
+    (procedure "::tk::panedwindow::ReleaseSash" line 2)
+    invoked from within
+"::tk::panedwindow::ReleaseSash $w $opaque"
+    (procedure "::tk::panedwindow::2DReleaseSash" line 8)
+    invoked from within
+"::tk::panedwindow::2DReleaseSash .main_pane.cs.8.pw 1903 703 1903 844 0"
+    (command bound to event)
+  <2: ::tkerror {invalid command name ".main_pane.cs.1.pw"}
+  <1: ::bgerror {invalid command name ".main_pane.cs.1.pw"}

@@ -58,6 +58,7 @@ begin
 				reg_wr <= '1';
 				alu_src <= '1';
 				alu_op <= CTRL_ALU_OP_ADD;
+				mem_rd <= '1';
 				mem2reg <= '1';
 				
 				

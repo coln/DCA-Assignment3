@@ -23,6 +23,9 @@ entity program_counter is
 end entity;
 
 architecture arch of program_counter is
+	signal delay_cycle : std_logic;
+	signal not_delay_cycle : std_logic;
+	
 	signal pc_reg_output : std_logic_vector(WIDTH-1 downto 0);
 	signal pc_inc1_output : std_logic_vector(WIDTH-1 downto 0);
 	signal pc_immediate_output : std_logic_vector(WIDTH-1 downto 0);
@@ -31,6 +34,23 @@ architecture arch of program_counter is
 	signal new_jump_address : std_logic_vector(WIDTH-1 downto 0);
 	signal next_pc : std_logic_vector(WIDTH-1 downto 0);
 begin
+	
+	-- Because the PC starts off by incrementing, delay one cycle after reset
+	-- to allow the first address to propagate through the processor
+	U_DELAY_CYCLE : entity work.reg_bit
+		generic map (
+			WIDTH => 1
+		)
+		port map (
+			clk => clk,
+			D => '1',
+			Q => delay_cycle,
+			wr => '1',
+			clr => rst
+		);
+	-- Because work.reg "RST" is low true
+	not_delay_cycle <= not delay_cycle;
+	
 	
 	-- Set PC to 0x00400000 on reset
 	pc <= INSTR_BASE_ADDR(31 downto 16) & pc_reg_output(15 downto 0);
@@ -45,7 +65,7 @@ begin
 			D => next_pc,
 			Q => pc_reg_output,
 			wr => '1',
-			clr => rst
+			clr => not_delay_cycle
 		);
 	
 	-- Although MIPS increments the PC by 4, since the memory is 32-bits wide,

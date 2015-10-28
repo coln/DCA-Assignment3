@@ -100,6 +100,12 @@ package lib is
 	function bool2logic(expr : boolean) return std_logic;
 	function int2slv(value : integer; width : positive; signed : boolean := false) return std_logic_vector;
 	function get_log2(num_bits : positive) return positive;
+	
+	-- Testbench ONLY
+	procedure clk_gen(signal clk : out std_logic;
+					  signal done : in std_logic;
+					  constant FREQ : real;
+					  PHASE : time := 0 fs);
 end lib;
 
 package body lib is
@@ -131,5 +137,50 @@ package body lib is
 	begin
 		return integer(ceil(log2(real(num_bits))));
 	end get_log2;
+	
+	
+	-- Advanced procedure for clock generation, with period adjust to match 
+	-- frequency over time, and run control by signal
+	-- NOTE: FOR TESTBENCH USE ONLY
+	-- Also note: REAL type (for FREQ) needs the ".0" at the end 
+	-- of the number, e.g. "5.0" instead of "5"
+	procedure clk_gen(
+		signal clk : out std_logic;
+		signal done : in std_logic;
+		constant FREQ : real;
+		constant PHASE : time := 0 fs
+	) is
+		constant HIGH_TIME   : time := 0.5 sec / FREQ;  -- High time as fixed value
+		variable low_time_v  : time;                    -- Low time calculated per cycle; always >= HIGH_TIME
+		variable cycles_v    : real := 0.0;             -- Number of cycles
+		variable freq_time_v : time := 0 fs;            -- Time used for generation of cycles
+	begin
+		-- Check the arguments
+		assert (HIGH_TIME /= 0 fs)
+			report "clk_gen: High time is zero; time resolution to large for frequency" severity FAILURE;
+			
+		-- Initial phase shift
+		clk <= '0';
+		wait for PHASE;
+		
+		-- Generate cycles
+		loop
+			-- Only high pulse if not done
+			if(done = '0' or done = 'L')then
+				clk <= not done;
+			else
+				exit;
+			end if;
+			wait for HIGH_TIME;
+			
+			-- Low part of cycle
+			clk <= '0';
+			low_time_v := 1 sec * ((cycles_v + 1.0) / FREQ) - freq_time_v - HIGH_TIME;  -- + 1.0 for cycle after current
+			wait for low_time_v;
+			-- Cycle counter and time passed update
+			cycles_v := cycles_v + 1.0;
+			freq_time_v := freq_time_v + HIGH_TIME + low_time_v;
+		end loop;
+	end procedure;
 	
 end lib;

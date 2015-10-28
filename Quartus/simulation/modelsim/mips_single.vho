@@ -1,4 +1,4 @@
--- Copyright (C) 1991-2013 Altera Corporation
+-- Copyright (C) 1991-2014 Altera Corporation
 -- Your use of Altera Corporation's design tools, logic functions 
 -- and other software and tools, and its AMPP partner logic 
 -- functions, and any output files from any of the foregoing 
@@ -14,9 +14,9 @@
 
 -- VENDOR "Altera"
 -- PROGRAM "Quartus II 64-Bit"
--- VERSION "Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
+-- VERSION "Version 13.1.4 Build 182 03/12/2014 SJ Web Edition"
 
--- DATE "10/27/2015 13:33:57"
+-- DATE "10/27/2015 20:30:53"
 
 -- 
 -- Device: Altera EP4CGX150DF31I7 Package FBGA896

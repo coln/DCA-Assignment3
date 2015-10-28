@@ -1,6 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
+-- Simple register with data width of WIDTH
 entity reg is
 	generic (
 		WIDTH : positive := 32

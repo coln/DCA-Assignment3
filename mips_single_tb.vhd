@@ -1,5 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use work.lib.all;
 
 entity mips_single_tb is
 end entity;
@@ -11,9 +12,11 @@ architecture arch of mips_single_tb is
 	signal mem_clk : std_logic := '0';
 	signal rst : std_logic := '0';
 begin
-
-	clk <= not clk and not done after 20 ns;
-	mem_clk <= not mem_clk and not done after 20 ns;
+	
+	-- Generate clk and mem_clk signals (50MHz and 200MHz respectively)
+	-- Note: mem_clk has a 3ns phase shift to allow for clk rise time
+	clk_gen(clk, done, 50.0E6);
+	clk_gen(mem_clk, done, 200.0E6, 3 ns);
 	
 	U_MIPS_SINGLE : entity work.mips_single
 		port map (
@@ -25,10 +28,10 @@ begin
 	process
 	begin
 		rst <= '1';
-		wait for 55 ns;
+		wait for 50 ns;
 		rst <= '0';
 		
-		wait for 500 ns;
+		wait for 350 ns;
 		
 		done <= '1';
 		wait;

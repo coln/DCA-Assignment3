@@ -18,10 +18,8 @@ entity mips_single is
 end entity;
 
 architecture arch of mips_single is
-	signal notclk : std_logic;
-	signal notmem_clk : std_logic;
 	signal instruction : std_logic_vector(WIDTH-1 downto 0);
-	
+	signal pc_clk : std_logic;
 	signal pc : std_logic_vector(WIDTH-1 downto 0);
 	signal pc_en : std_logic;
 	
@@ -62,10 +60,6 @@ architecture arch of mips_single is
 	signal ctrl_mem2reg : std_logic;
 begin
 	
-	-- Inverse of clk
-	notclk <= not clk;
-	notmem_clk <= not mem_clk;
-	
 	-- Altsyncram Memory Module (from Quartus Megawizard plugin)
 	-- Since this is a simulation, the memory module is only 256 locations deep
 	-- Maps to memory location 0x00400000
@@ -82,13 +76,14 @@ begin
 	-- Program Counter (updates on falling edge)
 	-- Shift the extender output left by two for the word address boundary
 	-- Update the PC on the falling edge
+	pc_clk <= not clk;
 	extender_output_shifted <= std_logic_vector(SHIFT_LEFT(unsigned(extender_output), 2));
 	U_PC : entity work.program_counter
 		generic map (
 			WIDTH => WIDTH
 		)
 		port map (
-			clk => notclk,
+			clk => pc_clk,
 			rst => rst,
 			immediate => extender_output_shifted,
 			jump_address => instruction(JTYPE_ADDRESS_RANGE),
