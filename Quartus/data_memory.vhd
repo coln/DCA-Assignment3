@@ -44,20 +44,20 @@ ENTITY data_memory IS
 	(
 		address		: IN STD_LOGIC_VECTOR (7 DOWNTO 0);
 		clock		: IN STD_LOGIC  := '1';
-		data		: IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+		data		: IN STD_LOGIC_VECTOR (7 DOWNTO 0);
 		rden		: IN STD_LOGIC  := '1';
 		wren		: IN STD_LOGIC ;
-		q		: OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
+		q		: OUT STD_LOGIC_VECTOR (7 DOWNTO 0)
 	);
 END data_memory;
 
 
 ARCHITECTURE SYN OF data_memory IS
 
-	SIGNAL sub_wire0	: STD_LOGIC_VECTOR (31 DOWNTO 0);
+	SIGNAL sub_wire0	: STD_LOGIC_VECTOR (7 DOWNTO 0);
 
 BEGIN
-	q    <= sub_wire0(31 DOWNTO 0);
+	q    <= sub_wire0(7 DOWNTO 0);
 
 	altsyncram_component : altsyncram
 	GENERIC MAP (
@@ -73,7 +73,7 @@ BEGIN
 		power_up_uninitialized => "FALSE",
 		read_during_write_mode_port_a => "OLD_DATA",
 		widthad_a => 8,
-		width_a => 32,
+		width_a => 8,
 		width_byteena_a => 1
 	)
 	PORT MAP (
@@ -123,7 +123,7 @@ END SYN;
 -- Retrieval info: PRIVATE: UseDQRAM NUMERIC "1"
 -- Retrieval info: PRIVATE: WRCONTROL_ACLR_A NUMERIC "0"
 -- Retrieval info: PRIVATE: WidthAddr NUMERIC "8"
--- Retrieval info: PRIVATE: WidthData NUMERIC "32"
+-- Retrieval info: PRIVATE: WidthData NUMERIC "8"
 -- Retrieval info: PRIVATE: rden NUMERIC "1"
 -- Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
 -- Retrieval info: CONSTANT: CLOCK_ENABLE_INPUT_A STRING "BYPASS"
@@ -138,23 +138,23 @@ END SYN;
 -- Retrieval info: CONSTANT: POWER_UP_UNINITIALIZED STRING "FALSE"
 -- Retrieval info: CONSTANT: READ_DURING_WRITE_MODE_PORT_A STRING "OLD_DATA"
 -- Retrieval info: CONSTANT: WIDTHAD_A NUMERIC "8"
--- Retrieval info: CONSTANT: WIDTH_A NUMERIC "32"
+-- Retrieval info: CONSTANT: WIDTH_A NUMERIC "8"
 -- Retrieval info: CONSTANT: WIDTH_BYTEENA_A NUMERIC "1"
 -- Retrieval info: USED_PORT: address 0 0 8 0 INPUT NODEFVAL "address[7..0]"
 -- Retrieval info: USED_PORT: clock 0 0 0 0 INPUT VCC "clock"
--- Retrieval info: USED_PORT: data 0 0 32 0 INPUT NODEFVAL "data[31..0]"
--- Retrieval info: USED_PORT: q 0 0 32 0 OUTPUT NODEFVAL "q[31..0]"
+-- Retrieval info: USED_PORT: data 0 0 8 0 INPUT NODEFVAL "data[7..0]"
+-- Retrieval info: USED_PORT: q 0 0 8 0 OUTPUT NODEFVAL "q[7..0]"
 -- Retrieval info: USED_PORT: rden 0 0 0 0 INPUT VCC "rden"
 -- Retrieval info: USED_PORT: wren 0 0 0 0 INPUT NODEFVAL "wren"
 -- Retrieval info: CONNECT: @address_a 0 0 8 0 address 0 0 8 0
 -- Retrieval info: CONNECT: @clock0 0 0 0 0 clock 0 0 0 0
--- Retrieval info: CONNECT: @data_a 0 0 32 0 data 0 0 32 0
+-- Retrieval info: CONNECT: @data_a 0 0 8 0 data 0 0 8 0
 -- Retrieval info: CONNECT: @rden_a 0 0 0 0 rden 0 0 0 0
 -- Retrieval info: CONNECT: @wren_a 0 0 0 0 wren 0 0 0 0
--- Retrieval info: CONNECT: q 0 0 32 0 @q_a 0 0 32 0
+-- Retrieval info: CONNECT: q 0 0 8 0 @q_a 0 0 8 0
 -- Retrieval info: GEN_FILE: TYPE_NORMAL data_memory.vhd TRUE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL data_memory.inc FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL data_memory.cmp TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL data_memory.cmp FALSE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL data_memory.bsf FALSE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL data_memory_inst.vhd FALSE
 -- Retrieval info: LIB_FILE: altera_mf

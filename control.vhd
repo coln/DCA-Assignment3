@@ -24,6 +24,8 @@ entity control is
 		alu_src : out std_logic;
 		alu_op : out std_logic_vector(ALU_OP_WIDTH-1 downto 0);
 		lui_src : out std_logic;
+		byte : out std_logic;
+		half : out std_logic;
 		mem_rd : out std_logic;
 		mem_wr : out std_logic;
 		mem2reg : out std_logic
@@ -46,6 +48,8 @@ begin
 		alu_src <= '0';
 		alu_op <= (others => '0');
 		lui_src <= '0';
+		byte <= '0';
+		half <= '0';
 		mem_rd <= '0';
 		mem_wr <= '0';
 		mem2reg <= '0';
@@ -102,11 +106,13 @@ begin
 			when OPCODE_SB =>
 				alu_src <= '1';
 				alu_op <= ALU_OP_ADD;
+				byte <= '1';
 				mem_wr <= '1';
 			
 			when OPCODE_SH =>
 				alu_src <= '1';
 				alu_op <= ALU_OP_ADD;
+				half <= '1';
 				mem_wr <= '1';
 			
 			when OPCODE_SW =>
@@ -118,6 +124,7 @@ begin
 				reg_wr <= '1';
 				alu_src <= '1';
 				alu_op <= ALU_OP_ADD;
+				byte <= '1';
 				mem_rd <= '1';
 				mem2reg <= '1';
 				
@@ -125,6 +132,7 @@ begin
 				reg_wr <= '1';
 				alu_src <= '1';
 				alu_op <= ALU_OP_ADD;
+				half <= '1';
 				mem_rd <= '1';
 				mem2reg <= '1';
 			

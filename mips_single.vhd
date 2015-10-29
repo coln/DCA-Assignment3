@@ -53,8 +53,6 @@ architecture arch of mips_single is
 	signal pc2reg31_output : std_logic_vector(WIDTH-1 downto 0);
 	
 	-- Memory
-	signal data_read_en : std_logic;
-	signal data_write_en : std_logic;
 	signal data_mem_output : std_logic_vector(WIDTH-1 downto 0);
 	
 	-- Control signals
@@ -69,6 +67,8 @@ architecture arch of mips_single is
 	signal ctrl_alu_src : std_logic;
 	signal ctrl_alu_op : std_logic_vector(ALU_OP_WIDTH-1 downto 0);
 	signal ctrl_lui_src : std_logic;
+	signal ctrl_byte : std_logic;
+	signal ctrl_half : std_logic;
 	signal ctrl_mem_rd : std_logic;
 	signal ctrl_mem_wr : std_logic;
 	signal ctrl_mem2reg : std_logic;
@@ -139,6 +139,8 @@ begin
 			alu_src => ctrl_alu_src,
 			alu_op => ctrl_alu_op,
 			lui_src => ctrl_lui_src,
+			byte => ctrl_byte,
+			half => ctrl_half,
 			mem_rd => ctrl_mem_rd,
 			mem_wr => ctrl_mem_wr,
 			mem2reg => ctrl_mem2reg
@@ -234,24 +236,26 @@ begin
 			overflow => alu_overflow
 		);
 	
+	
+	
 	-- Altsyncram Data Memory Module
-	-- Again, due to simulation only use part of output as address
-	-- Maps to DATA_BASE_ADDR (0x10000000)
-	data_read_en <= not rst
-					and ctrl_mem_rd
-					and bool2logic(alu_output(31 downto 8) = DATA_BASE_ADDR(31 downto 8));
-	data_write_en <= not rst
-					 and ctrl_mem_wr
-					 and bool2logic(alu_output(31 downto 8) = DATA_BASE_ADDR(31 downto 8));
-	U_DATA_MEMORY : entity work.data_memory
+	-- Byte addressable
+	U_DATA_MEMORY : entity work.data_memory_wrapper
+		generic map (
+			WIDTH => WIDTH
+		)
 		port map (
-			address => alu_output(7 downto 0),
-			clock => mem_clk,
+			clk => mem_clk,
+			rst => rst,
+			address => alu_output,
 			data => reg_output_B,
-			rden => data_read_en,
-			wren => data_write_en,
-			q => data_mem_output
+			rden => ctrl_mem_rd,
+			wren => ctrl_mem_wr,
+			byte => ctrl_byte,
+			half => ctrl_half,
+			output => data_mem_output
 		);
+	
 	
 	
 	-- Load Upper Immediate (LUI): Imm[31:16] & Rt[15:0] or ALU ouptut

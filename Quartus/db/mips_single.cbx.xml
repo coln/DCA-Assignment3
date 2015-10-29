@@ -1,7 +1,10 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="mips_single">
-		<CBX_INST_ENTRY INSTANCE_NAME="|mips_single|data_memory:U_DATA_MEMORY|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_qhp3.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|mips_single|data_memory_wrapper:U_DATA_MEMORY|data_memory:U_DATA_MEMORY0|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_dgp3.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|mips_single|data_memory_wrapper:U_DATA_MEMORY|data_memory:U_DATA_MEMORY2|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_dgp3.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|mips_single|instr_memory:U_INSTR_MEMORY|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_ogs3.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|mips_single|data_memory_wrapper:U_DATA_MEMORY|data_memory:U_DATA_MEMORY1|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_dgp3.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|mips_single|data_memory_wrapper:U_DATA_MEMORY|data_memory:U_DATA_MEMORY3|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_dgp3.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

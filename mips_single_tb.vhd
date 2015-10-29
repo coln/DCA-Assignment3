@@ -16,7 +16,7 @@ begin
 	-- Generate clk and mem_clk signals (50MHz and 150MHz respectively)
 	-- Note: mem_clk has a 5ns phase shift to allow for clk rise/fall time
 	clk_gen(clk, done, 50.0E6);
-	clk_gen(mem_clk, done, 150.0E6, 5 ns);
+	clk_gen(mem_clk, done, 100.0E6, 5 ns);
 	
 	U_MIPS_SINGLE : entity work.mips_single
 		port map (
@@ -31,7 +31,7 @@ begin
 		wait for 30 ns;
 		rst <= '0';
 		
-		wait for 350 ns;
+		wait for 450 ns;
 		
 		done <= '1';
 		wait;

@@ -103,10 +103,12 @@ package lib is
 	
 	
 	function bool2logic(expr : boolean) return std_logic;
-	function logic2unsigned(value : std_logic; width : positive) return unsigned;
+	function bool2slv(expr : boolean) return std_logic_vector;
+	function bool2slv(expr : boolean; width : positive) return std_logic_vector;
 	function logic2unsigned(value : std_logic) return unsigned;
-	function slv2unsigned(value : std_logic_vector; width : integer) return unsigned;
+	function logic2unsigned(value : std_logic; width : positive) return unsigned;
 	function slv2unsigned(value : std_logic_vector) return unsigned;
+	function slv2unsigned(value : std_logic_vector; width : integer) return unsigned;
 	function int2slv(value : integer; width : positive; signed : boolean := false) return std_logic_vector;
 	function get_log2(num_bits : positive) return positive;
 	
@@ -128,6 +130,29 @@ package body lib is
 			return '0';
 		end if;
 	end bool2logic;
+	
+	-- Converts a boolean value to a std_logic_vector value
+	function bool2slv(expr : boolean) return std_logic_vector is
+	begin
+		return bool2slv(expr, 2);
+	end bool2slv;
+	
+	function bool2slv(expr : boolean; width : positive) return std_logic_vector is
+	begin
+		if(width <= 2) then
+			if(expr) then
+				return "01";
+			else
+				return "00";
+			end if;
+		else
+			if(expr) then
+				return std_logic_vector(to_unsigned(1, width));
+			else
+				return std_logic_vector(to_unsigned(0, width));
+			end if;
+		end if;
+	end bool2slv;
 	
 	-- std_logic to unsigned with specific length
 	function logic2unsigned(value : std_logic) return unsigned is
