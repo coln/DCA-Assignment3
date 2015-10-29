@@ -31,7 +31,6 @@ architecture arch of mips_single is
 	
 	-- Extender
 	signal extender_output : std_logic_vector(WIDTH-1 downto 0);
-	signal extender_output_shifted : std_logic_vector(WIDTH-1 downto 0);
 	
 	-- ALU
 	signal alu_input_B : std_logic_vector(WIDTH-1 downto 0);
@@ -76,10 +75,11 @@ begin
 		);
 	
 	-- Program Counter (updates on falling edge)
-	-- Shift the extender output left by two for the word address boundary
+	-- Would normally shift the extender output left by 2 for the word address boundary,
+	-- but I am using 32-bit wide instruction memory, so this is unnecessary
 	-- Update the PC on the falling edge
 	pc_clk <= not clk;
-	extender_output_shifted <= std_logic_vector(SHIFT_LEFT(unsigned(extender_output), 2));
+	--extender_output_shifted <= std_logic_vector(SHIFT_LEFT(unsigned(extender_output), 2));
 	U_PC : entity work.program_counter
 		generic map (
 			WIDTH => WIDTH
@@ -87,7 +87,7 @@ begin
 		port map (
 			clk => pc_clk,
 			rst => rst,
-			immediate => extender_output_shifted,
+			immediate => extender_output,
 			jump_address => instruction(JTYPE_ADDRESS_RANGE),
 			beq => ctrl_beq,
 			bne => ctrl_bne,

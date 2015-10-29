@@ -13,10 +13,10 @@ architecture arch of mips_single_tb is
 	signal rst : std_logic := '0';
 begin
 	
-	-- Generate clk and mem_clk signals (50MHz and 200MHz respectively)
-	-- Note: mem_clk has a 3ns phase shift to allow for clk rise time
+	-- Generate clk and mem_clk signals (50MHz and 150MHz respectively)
+	-- Note: mem_clk has a 5ns phase shift to allow for clk rise/fall time
 	clk_gen(clk, done, 50.0E6);
-	clk_gen(mem_clk, done, 200.0E6, 3 ns);
+	clk_gen(mem_clk, done, 150.0E6, 5 ns);
 	
 	U_MIPS_SINGLE : entity work.mips_single
 		port map (

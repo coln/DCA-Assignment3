@@ -17,18 +17,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity mux4
 -- Compiling architecture arch of mux4
 
-} {} {}} {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mips_single_tb.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mips_single_tb.vhd}
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package MATH_REAL
--- Loading package lib
--- Compiling entity mips_single_tb
--- Compiling architecture arch of mips_single_tb
--- Loading entity mips_single
-
 } {} {}} {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/add.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/add.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -57,6 +45,17 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package altera_mf_components
 -- Compiling entity data_memory
 -- Compiling architecture SYN of data_memory
+
+} {} {}} {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/lib.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/lib.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package MATH_REAL
+-- Compiling package lib
+-- Compiling package body lib
+-- Loading package lib
 
 } {} {}} {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/program_counter.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/program_counter.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -93,28 +92,7 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity control
 -- Compiling architecture arch of control
 
-} {} {}} {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mips_single.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mips_single.vhd}
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package MATH_REAL
--- Loading package lib
--- Compiling entity mips_single
--- Compiling architecture arch of mips_single
--- Loading package altera_mf_components
--- Loading entity instr_memory
--- Loading entity program_counter
--- Loading entity control
--- Loading entity mux2
--- Loading entity reg_file
--- Loading entity extender
--- Loading entity alu_control
--- Loading entity alu
--- Loading entity data_memory
-
-} {} {}} {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/alu.vhd} {0 {vcom -work work -2002 -explicit {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/alu.vhd}
+} {} {}} {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/alu.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/alu.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -125,11 +103,8 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity alu
 -- Compiling architecture arch of alu
 -- Loading entity mux4
-** Error: C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/alu.vhd(84): Ambiguous type in infix expression; ieee.std_logic_1164.STD_LOGIC_VECTOR or ieee.std_logic_1164.STD_ULOGIC_VECTOR.
-** Error: C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/alu.vhd(85): Illegal type conversion to ieee.NUMERIC_STD.UNSIGNED (operand type is not known).
-** Error: C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/alu.vhd(128): VHDL Compiler exiting
 
-} {12.0 15.0} {}} {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/Quartus/instr_memory.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/Quartus/instr_memory.vhd}
+} {} {}} {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/Quartus/instr_memory.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/Quartus/instr_memory.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO

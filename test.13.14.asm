@@ -13,7 +13,7 @@ beq $1, $0, finally
 add $2, $2, $1         ; $2 = 4
 bne $1, $1, finally
 loop:
-beq $0, $0, loop ; Run infinitely
+beq $0, $0, loop       ; Run infinitely
 
 finally:
 add $2, $2, $1         ; This should never run

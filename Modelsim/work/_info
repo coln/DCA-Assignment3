@@ -15,7 +15,7 @@ L6
 VABF0j@894@TfJe7EeCb?T3
 Z6 OV;C;10.1d;51
 32
-Z7 !s108 1446082882.865000
+Z7 !s108 1446083530.056000
 Z8 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/add.vhd|
 Z9 !s107 C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/add.vhd|
 Z10 o-work work -2002 -explicit -O0
@@ -54,7 +54,7 @@ L13
 V^fUEE?_Xm=LgcEcN;z^8f0
 R6
 32
-Z20 !s108 1446082883.068000
+Z20 !s108 1446083530.754000
 Z21 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/alu.vhd|
 Z22 !s107 C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/alu.vhd|
 R10
@@ -96,7 +96,7 @@ L6
 VdTz`e<U^ILVCI@=ZlkcH82
 R6
 32
-Z28 !s108 1446082883.521000
+Z28 !s108 1446083531.023000
 Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/alu_control.vhd|
 Z30 !s107 C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/alu_control.vhd|
 R10
@@ -134,7 +134,7 @@ L5
 VPT7MzJdPcPSVic_D:l:9f0
 R6
 32
-Z35 !s108 1446082883.771000
+Z35 !s108 1446083531.305000
 Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/cla4.vhd|
 Z37 !s107 C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/cla4.vhd|
 R10
@@ -172,7 +172,7 @@ L12
 VTmQ9J6h4fl^R]JfOEzAM<0
 R6
 32
-Z41 !s108 1446082884.240000
+Z41 !s108 1446083531.601000
 Z42 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/control.vhd|
 Z43 !s107 C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/control.vhd|
 R10
@@ -211,7 +211,7 @@ L42
 VNA5ZGk@[0:3`zOhdz[o^40
 R6
 32
-Z49 !s108 1446082887.469000
+Z49 !s108 1446083534.962000
 Z50 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/Quartus/data_memory.vhd|
 Z51 !s107 C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/Quartus/data_memory.vhd|
 R10
@@ -248,7 +248,7 @@ L7
 V3k<fRe:fc_:GKeo]Po]2G1
 R6
 32
-Z55 !s108 1446082884.458000
+Z55 !s108 1446083531.992000
 Z56 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/extender.vhd|
 Z57 !s107 C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/extender.vhd|
 R10
@@ -287,7 +287,7 @@ VQTzZb?;NJZU`;WZA:li9f1
 R6
 32
 !i10b 1
-Z61 !s108 1446082887.704000
+Z61 !s108 1446083535.180000
 Z62 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/Quartus/instr_memory.vhd|
 Z63 !s107 C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/Quartus/instr_memory.vhd|
 R10
@@ -324,7 +324,7 @@ VLXGL4DPeUlBP9`36QmgN`2
 R6
 32
 b1
-Z70 !s108 1446082884.724000
+Z70 !s108 1446083532.306000
 Z71 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/lib.vhd|
 Z72 !s107 C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/lib.vhd|
 R10
@@ -351,7 +351,7 @@ nbody
 !s100 `7MY]i1J_R17gz=]:NAe_3
 !i10b 1
 Emips_single
-Z73 w1446081305
+Z73 w1446083526
 R15
 R16
 R17
@@ -365,7 +365,7 @@ L9
 VOgo<4f5`o;iflRiNNU60X0
 R6
 32
-Z76 !s108 1446082884.974000
+Z76 !s108 1446083532.558000
 Z77 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mips_single.vhd|
 Z78 !s107 C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mips_single.vhd|
 R10
@@ -389,9 +389,9 @@ R17
 R1
 R2
 Z82 DEx4 work 11 mips_single 0 22 Ogo<4f5`o;iflRiNNU60X0
-l63
+l62
 L20
-V;jKAEHhMIS>7MCT:h[z_o0
+VSfe_8NaE4>M_`EkN<75b30
 R6
 32
 R76
@@ -399,10 +399,10 @@ R77
 R78
 R10
 R11
-!s100 6KS`c3Vm^jF@B?MPmgUoI2
+!s100 bQKznC^:TSHhMaidB;lT33
 !i10b 1
 Emips_single_tb
-Z83 w1446070510
+Z83 w1446083142
 R15
 R17
 R16
@@ -416,7 +416,7 @@ L5
 VAWoCiO>>nTbM;?;H0KPK30
 R6
 32
-Z86 !s108 1446082885.409000
+Z86 !s108 1446083532.837000
 Z87 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mips_single_tb.vhd|
 Z88 !s107 C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mips_single_tb.vhd|
 R10
@@ -433,7 +433,7 @@ R2
 DEx4 work 14 mips_single_tb 0 22 AWoCiO>>nTbM;?;H0KPK30
 l14
 L8
-VXAMm2h:TUUO58g8Gk6c>L1
+V=^PTUbMUBB@WXbggBX06S3
 R6
 32
 R86
@@ -441,7 +441,7 @@ R87
 R88
 R10
 R11
-!s100 bnOb_Z65nTlH^UN>8e8T;0
+!s100 jb>nUTOc3oghnj?fhnb650
 !i10b 1
 Emux2
 R32
@@ -458,7 +458,7 @@ L6
 VnIX04^nUiHH]80MLPIB392
 R6
 32
-Z91 !s108 1446082885.775000
+Z91 !s108 1446083533.227000
 Z92 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mux2.vhd|
 Z93 !s107 C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mux2.vhd|
 R10
@@ -499,7 +499,7 @@ L6
 V9c2O]=9J[:BW6Bg]j1lzO1
 R6
 32
-Z96 !s108 1446082886.042000
+Z96 !s108 1446083533.508000
 Z97 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mux4.vhd|
 Z98 !s107 C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mux4.vhd|
 R10
@@ -540,7 +540,7 @@ L9
 VhRD=dWVhmMeHmVGf0bzEj0
 R6
 32
-Z102 !s108 1446082886.254000
+Z102 !s108 1446083533.837000
 Z103 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/program_counter.vhd|
 Z104 !s107 C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/program_counter.vhd|
 R10
@@ -582,7 +582,7 @@ L5
 VOL3[9nYMhKDJNTgiUlUU30
 R6
 32
-Z109 !s108 1446082886.598000
+Z109 !s108 1446083534.118000
 Z110 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/reg.vhd|
 Z111 !s107 C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/reg.vhd|
 R10
@@ -617,7 +617,7 @@ L5
 VmYXBnIP7AK8zaoVm8:5fE1
 R6
 32
-Z114 !s108 1446082886.879000
+Z114 !s108 1446083534.399000
 Z115 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/reg_bit.vhd|
 Z116 !s107 C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/reg_bit.vhd|
 R10
@@ -655,7 +655,7 @@ L17
 VeZY1P^bNQ3n_6CH1QUc`53
 R6
 32
-Z119 !s108 1446082887.188000
+Z119 !s108 1446083534.712000
 Z120 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/reg_file.vhd|
 Z121 !s107 C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/reg_file.vhd|
 R10
