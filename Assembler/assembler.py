@@ -351,7 +351,7 @@ class Assembler:
             output += "\n"
             outputFile.write(output)
             
-         output += "    [" + ('{0:0' + str(numHex) + 'X}').format(i + 1)
+         output = "    [" + ('{0:0' + str(numHex) + 'X}').format(i + 1)
          output += ".." + ('{0:0' + str(numHex) + 'X}').format(self.DEPTH - 1) + "]"
          output += "  :   ";
          output += ('{0:0' + str(int(self.WIDTH / 4)) + 'X}').format(0) + ";"

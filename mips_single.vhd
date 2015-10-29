@@ -49,7 +49,8 @@ architecture arch of mips_single is
 	signal data_mem_output : std_logic_vector(WIDTH-1 downto 0);
 	
 	-- Control signals
-	signal ctrl_branch : std_logic;
+	signal ctrl_beq : std_logic;
+	signal ctrl_bne : std_logic;
 	signal ctrl_jump : std_logic;
 	signal ctrl_reg_dest : std_logic;
 	signal ctrl_reg_wr : std_logic;
@@ -88,7 +89,8 @@ begin
 			rst => rst,
 			immediate => extender_output_shifted,
 			jump_address => instruction(JTYPE_ADDRESS_RANGE),
-			branch => ctrl_branch,
+			beq => ctrl_beq,
+			bne => ctrl_bne,
 			jump => ctrl_jump,
 			zero => alu_zero,
 			pc => pc
@@ -98,7 +100,8 @@ begin
 	U_CONTROL : entity work.control
 		port map (
 			opcode => instruction(OPCODE_RANGE),
-			branch => ctrl_branch,
+			beq => ctrl_beq,
+			bne => ctrl_bne,
 			jump => ctrl_jump,
 			reg_dest => ctrl_reg_dest,
 			reg_wr => ctrl_reg_wr,

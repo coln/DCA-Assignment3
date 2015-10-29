@@ -103,6 +103,10 @@ package lib is
 	
 	
 	function bool2logic(expr : boolean) return std_logic;
+	function logic2unsigned(value : std_logic; width : positive) return unsigned;
+	function logic2unsigned(value : std_logic) return unsigned;
+	function slv2unsigned(value : std_logic_vector; width : integer) return unsigned;
+	function slv2unsigned(value : std_logic_vector) return unsigned;
 	function int2slv(value : integer; width : positive; signed : boolean := false) return std_logic_vector;
 	function get_log2(num_bits : positive) return positive;
 	
@@ -124,6 +128,36 @@ package body lib is
 			return '0';
 		end if;
 	end bool2logic;
+	
+	-- std_logic to unsigned with specific length
+	function logic2unsigned(value : std_logic) return unsigned is
+	begin
+		return logic2unsigned(value, 1);
+	end logic2unsigned;
+	
+	function logic2unsigned(value : std_logic; width : positive) return unsigned is
+		variable temp : std_logic_vector(0 downto 0);
+	begin
+		temp(0) := value;
+		if(width > 1) then
+			return resize(unsigned(temp), width);
+		else
+			return unsigned(temp);
+		end if;
+	end logic2unsigned;
+	
+	
+	-- std_logic_vector to unsigned with specific length
+	function slv2unsigned(value : std_logic_vector) return unsigned is
+	begin
+		return slv2unsigned(value, value'length);
+	end slv2unsigned;
+	
+	function slv2unsigned(value : std_logic_vector; width : positive) return unsigned is
+	begin
+		return resize(unsigned(value), width);
+	end slv2unsigned;
+	
 	
 	-- Returns a std_logic_vector (slv) representation of "value"
 	-- Note: This will return an signed slv if the "value" < 0 or if signed = true

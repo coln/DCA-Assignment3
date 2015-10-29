@@ -15,7 +15,8 @@ entity program_counter is
 		rst : in std_logic;
 		immediate : in std_logic_vector(WIDTH-1 downto 0);
 		jump_address : in std_logic_vector(JTYPE_ADDRESS_WIDTH-1 downto 0);
-		branch : in std_logic;
+		beq : in std_logic;
+		bne : in std_logic;
 		jump : in std_logic;
 		zero : in std_logic;
 		pc : out std_logic_vector(WIDTH-1 downto 0)
@@ -94,7 +95,7 @@ begin
 		);		
 	
 	-- Selects between "pc + immediate" or "pc + 4" depending on branch
-	branch_mux_sel <= branch and zero;
+	branch_mux_sel <= (beq and zero) or (bne and not zero);
 	
 	U_BRANCH_MUX : entity work.mux2
 		generic map (

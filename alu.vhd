@@ -74,7 +74,15 @@ begin
 	
 	-- Since the control line is setting A/B inverse
 	-- addition and subtraction is the same
-	add <= std_logic_vector(resize(unsigned(A), WIDTH+1) + resize(unsigned(B), WIDTH+1));
+	-- A + B = A + B
+	-- A - B = A + not(B) + 1
+	-- The unsigned() casts are there because we already accounted for sign using
+	-- the above method
+	add <= std_logic_vector(
+				slv2unsigned(A, WIDTH+1)
+				+ slv2unsigned(B, WIDTH+1)
+				+ logic2unsigned(control(3), WIDTH+1)
+			);
 	
 	-- Sign flags
 	process(A, B, control, add)

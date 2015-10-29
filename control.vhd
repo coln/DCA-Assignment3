@@ -12,7 +12,8 @@ use work.lib.all;
 entity control is
 	port (
 		opcode : in std_logic_vector(OPCODE_RANGE);
-		branch : out std_logic;
+		beq : out std_logic;
+		bne : out std_logic;
 		jump : out std_logic;
 		reg_dest : out std_logic;
 		reg_wr : out std_logic;
@@ -30,7 +31,8 @@ begin
 	
 	process(opcode)
 	begin
-		branch <= '0';
+		beq <= '0';
+		bne <= '0';
 		jump <= '0';
 		reg_dest <= '0';
 		reg_wr <= '0';
@@ -80,6 +82,13 @@ begin
 				mem_rd <= '1';
 				mem2reg <= '1';
 			
+			when OPCODE_BEQ =>
+				beq <= '1';
+				alu_op <= ALU_OP_SUB;
+			
+			when OPCODE_BNE =>
+				bne <= '1';
+				alu_op <= ALU_OP_SUB;
 				
 				
 			when others => null;
