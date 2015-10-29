@@ -1,6 +1,0 @@
-; Load/store 0xAA from base address 0x10000000 + offset of 3
-addi $1, $0, 0xAA
-addi $2, $0, 0x1000
-sll $2, $2, 16
-sw $1, 3($2)
-lw $3, 3($2)

@@ -58,15 +58,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity data_memory
 -- Compiling architecture SYN of data_memory
 
-} {} {}} {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/extender.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/extender.vhd}
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity extender
--- Compiling architecture arch of extender
-
 } {} {}} {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/lib.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/lib.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -92,6 +83,15 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading entity reg
 -- Loading entity add
 -- Loading entity mux2
+
+} {} {}} {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/extender.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/extender.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity extender
+-- Compiling architecture arch of extender
 
 } {} {}} {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/alu.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/alu.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -143,14 +143,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity reg_bit
 -- Compiling architecture arch of reg_bit
 
-} {} {}} {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/cla4.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/cla4.vhd}
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity cla4
--- Compiling architecture arch of cla4
-
 } {} {}} {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mux2.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mux2.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -161,6 +153,14 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package lib
 -- Compiling entity mux2
 -- Compiling architecture arch of mux2
+
+} {} {}} {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/cla4.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/cla4.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity cla4
+-- Compiling architecture arch of cla4
 
 } {} {}} {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/reg_file.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/reg_file.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012

@@ -59,27 +59,32 @@ package lib is
 	
 	-- Controller Constants
 	-- ALUop
-	constant CTRL_ALU_OP_FUNC : std_logic_vector(2 downto 0) := "100";
-	constant CTRL_ALU_OP_AND : std_logic_vector(2 downto 0) := "000";
-	constant CTRL_ALU_OP_SUB : std_logic_vector(2 downto 0) := "001";
-	constant CTRL_ALU_OP_ADD : std_logic_vector(2 downto 0) := "010";
-	constant CTRL_ALU_OP_OR : std_logic_vector(2 downto 0) := "110";
-	constant CTRL_ALU_OP_SLTU : std_logic_vector(2 downto 0) := "101";
-	constant CTRL_ALU_OP_SLT : std_logic_vector(2 downto 0) := "111";
+	constant ALU_OP_WIDTH : positive := 4;
+	subtype ALU_OP_RANGE is natural range ALU_OP_WIDTH-1 downto 0;
+	constant ALU_OP_FUNC : std_logic_vector(ALU_OP_RANGE) := "1000";
+	constant ALU_OP_AND : std_logic_vector(ALU_OP_RANGE) := "0000";
+	constant ALU_OP_SUB : std_logic_vector(ALU_OP_RANGE) := "0010";
+	constant ALU_OP_SUBU : std_logic_vector(ALU_OP_RANGE) := "0011";
+	constant ALU_OP_ADD : std_logic_vector(ALU_OP_RANGE) := "0100";
+	constant ALU_OP_ADDU : std_logic_vector(ALU_OP_RANGE) := "0101";
+	constant ALU_OP_OR : std_logic_vector(ALU_OP_RANGE) := "1100";
+	constant ALU_OP_SLT : std_logic_vector(ALU_OP_RANGE) := "1110";
+	constant ALU_OP_SLTU : std_logic_vector(ALU_OP_RANGE) := "1011";
 	
 	
 	-- ALU Constants
-	constant ALU_OP_WIDTH : positive := 3;
-	constant ALU_CONTROL_WIDTH : positive := 4;
+	constant ALU_CONTROL_WIDTH : positive := 5;
 	subtype ALU_CONTROL_RANGE is natural range ALU_CONTROL_WIDTH-1 downto 0;
-	constant ALU_OP_ADD : std_logic_vector(ALU_CONTROL_RANGE) := "0010";
-	constant ALU_OP_SUB : std_logic_vector(ALU_CONTROL_RANGE) := "0110";
-	constant ALU_OP_AND : std_logic_vector(ALU_CONTROL_RANGE) := "0000";
-	constant ALU_OP_OR : std_logic_vector(ALU_CONTROL_RANGE) := "0001";
-	constant ALU_OP_NOR : std_logic_vector(ALU_CONTROL_RANGE) := "1100";
-	constant ALU_OP_SLT_SIGNED : std_logic_vector(ALU_CONTROL_RANGE) := "0111";
-	constant ALU_OP_SLT_UNSIGNED : std_logic_vector(ALU_CONTROL_RANGE) := "1111";
-	constant ALU_OP_SHIFT : std_logic_vector(ALU_CONTROL_RANGE) := "0011";
+	constant ALU_ADD : std_logic_vector(ALU_CONTROL_RANGE) := "00100";
+	constant ALU_ADDU : std_logic_vector(ALU_CONTROL_RANGE) := "00101";
+	constant ALU_SUB : std_logic_vector(ALU_CONTROL_RANGE) := "01100";
+	constant ALU_SUBU : std_logic_vector(ALU_CONTROL_RANGE) := "01101";
+	constant ALU_AND : std_logic_vector(ALU_CONTROL_RANGE) := "00000";
+	constant ALU_OR : std_logic_vector(ALU_CONTROL_RANGE) := "00010";
+	constant ALU_NOR : std_logic_vector(ALU_CONTROL_RANGE) := "11000";
+	constant ALU_SLT : std_logic_vector(ALU_CONTROL_RANGE) := "01110";
+	constant ALU_SLTU : std_logic_vector(ALU_CONTROL_RANGE) := "11111";
+	constant ALU_SHIFT : std_logic_vector(ALU_CONTROL_RANGE) := "00110";
 	-- ALU Function Codes (from the instruction itself)
 	subtype ALU_FUNC_RANGE is natural range RTYPE_FUNC_WIDTH-1 downto 0;
 	constant RTYPE_FUNC_ADD : std_logic_vector(ALU_FUNC_RANGE) := "100000";

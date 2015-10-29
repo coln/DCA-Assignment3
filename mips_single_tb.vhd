@@ -28,7 +28,7 @@ begin
 	process
 	begin
 		rst <= '1';
-		wait for 50 ns;
+		wait for 30 ns;
 		rst <= '0';
 		
 		wait for 350 ns;

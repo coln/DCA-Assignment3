@@ -53,6 +53,7 @@ architecture arch of mips_single is
 	signal ctrl_jump : std_logic;
 	signal ctrl_reg_dest : std_logic;
 	signal ctrl_reg_wr : std_logic;
+	signal ctrl_extender : std_logic;
 	signal ctrl_alu_src : std_logic;
 	signal ctrl_alu_op : std_logic_vector(ALU_OP_WIDTH-1 downto 0);
 	signal ctrl_mem_rd : std_logic;
@@ -101,6 +102,7 @@ begin
 			jump => ctrl_jump,
 			reg_dest => ctrl_reg_dest,
 			reg_wr => ctrl_reg_wr,
+			extender => ctrl_extender,
 			alu_src => ctrl_alu_src,
 			alu_op => ctrl_alu_op,
 			mem_rd => ctrl_mem_rd,
@@ -146,7 +148,7 @@ begin
 		port map (
 			in0 => instruction(ITYPE_IMMEDIATE_RANGE),
 			out0 => extender_output,
-			is_signed => '1'
+			is_signed => ctrl_extender
 		);
 	
 	-- ALU Input B Mux
