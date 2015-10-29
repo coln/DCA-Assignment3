@@ -23,6 +23,7 @@ entity control is
 		extender : out std_logic;
 		alu_src : out std_logic;
 		alu_op : out std_logic_vector(ALU_OP_WIDTH-1 downto 0);
+		lui_src : out std_logic;
 		mem_rd : out std_logic;
 		mem_wr : out std_logic;
 		mem2reg : out std_logic
@@ -44,6 +45,7 @@ begin
 		extender <= '1'; -- Sign extend is default
 		alu_src <= '0';
 		alu_op <= (others => '0');
+		lui_src <= '0';
 		mem_rd <= '0';
 		mem_wr <= '0';
 		mem2reg <= '0';
@@ -58,6 +60,12 @@ begin
 					reg_wr <= '1';
 					alu_op <= ALU_OP_FUNC;
 				end if;
+			
+			when OPCODE_LUI =>
+				reg_wr <= '1';
+				alu_src <= '1';
+				alu_op <= ALU_OP_ADD;
+				lui_src <= '1';
 			
 			when OPCODE_ADDI =>
 				reg_wr <= '1';
@@ -77,14 +85,29 @@ begin
 			
 			when OPCODE_ORI =>
 				reg_wr <= '1';
+				extender <= '0';
 				alu_src <= '1';
 				alu_op <= ALU_OP_OR;
 			
 			when OPCODE_SLTI =>
+				reg_wr <= '1';
+				alu_src <= '1';
+				alu_op <= ALU_OP_SLT;
+				
 			when OPCODE_SLTIU =>
-			
+				reg_wr <= '1';
+				alu_src <= '1';
+				alu_op <= ALU_OP_SLTU;
+				
 			when OPCODE_SB =>
+				alu_src <= '1';
+				alu_op <= ALU_OP_ADD;
+				mem_wr <= '1';
+			
 			when OPCODE_SH =>
+				alu_src <= '1';
+				alu_op <= ALU_OP_ADD;
+				mem_wr <= '1';
 			
 			when OPCODE_SW =>
 				alu_src <= '1';
@@ -92,8 +115,18 @@ begin
 				mem_wr <= '1';
 			
 			when OPCODE_LBU =>
+				reg_wr <= '1';
+				alu_src <= '1';
+				alu_op <= ALU_OP_ADD;
+				mem_rd <= '1';
+				mem2reg <= '1';
+				
 			when OPCODE_LHU =>
-			when OPCODE_LUI =>
+				reg_wr <= '1';
+				alu_src <= '1';
+				alu_op <= ALU_OP_ADD;
+				mem_rd <= '1';
+				mem2reg <= '1';
 			
 			when OPCODE_LW =>
 				reg_wr <= '1';

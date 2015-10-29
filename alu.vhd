@@ -115,8 +115,8 @@ begin
 	-- SLT signed   -> control = "11110"
 	-- Determine which type based on control(4)
 	set_on_less_than(WIDTH-1 downto 1) <= (others => '0');
-	with control(4) select
-		set_on_less_than(0) <= bool2logic(unsigned(inA) < unsigned(inB)) when '0',
+	with control(0) select
+		set_on_less_than(0) <= bool2logic(unsigned(inA) < unsigned(inB)) when '1',
 							   bool2logic(signed(inA) < signed(inB)) when others;
 	
 	

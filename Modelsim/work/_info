@@ -40,7 +40,7 @@ R11
 !s100 dW>W;_lS6f3Si?XBb^M<31
 !i10b 1
 Ealu
-Z14 w1446082881
+Z14 w1446095224
 Z15 DPx4 ieee 9 math_real 0 22 :iME`dTX54_U49lJNF5JI3
 Z16 DPx4 work 3 lib 0 22 LXGL4DPeUlBP9`36QmgN`2
 Z17 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
@@ -54,7 +54,7 @@ L13
 V^fUEE?_Xm=LgcEcN;z^8f0
 R6
 32
-Z20 !s108 1446088093.336000
+Z20 !s108 1446095672.054000
 Z21 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/alu.vhd|
 Z22 !s107 C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/alu.vhd|
 R10
@@ -71,7 +71,7 @@ R2
 Z24 DEx4 work 3 alu 0 22 ^fUEE?_Xm=LgcEcN;z^8f0
 l47
 L36
-Vh=2ojGGX;Sl9RQ0Vd^4[o1
+VZQ[>ARdga<CLo8h`16zjM1
 R6
 32
 R20
@@ -79,7 +79,7 @@ R21
 R22
 R10
 R11
-!s100 NUl6R`86`HF9h<daiGEAa3
+!s100 ?0m0j9T7k@cz]UzGT0NLF1
 !i10b 1
 Ealu_control
 Z25 w1446074772
@@ -158,7 +158,7 @@ R11
 !s100 JeN?5I=fFkEA=__:dHjNc3
 !i10b 1
 Econtrol
-Z38 w1446091491
+Z38 w1446098147
 R15
 R17
 R16
@@ -169,12 +169,12 @@ Z39 8C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/c
 Z40 FC:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/control.vhd
 l0
 L12
-V8n;Ed[cn]>?mIf4aAAmF50
-!s100 Dz5d=`=>h?ZZ6;EmO[<Tk0
+VmOXHdgdl41K<c1e0dMlfN1
+!s100 :Kc:g:8AoANJ7E1MlA`N23
 R6
 32
 !i10b 1
-Z41 !s108 1446091494.675000
+Z41 !s108 1446098314.492000
 Z42 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/control.vhd|
 Z43 !s107 C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/control.vhd|
 R10
@@ -185,11 +185,11 @@ R17
 R16
 R1
 R2
-Z44 DEx4 work 7 control 0 22 8n;Ed[cn]>?mIf4aAAmF50
-l33
-L32
-VZoNmmU1>NHShU>H1f109<3
-!s100 2EgkZ4MOJ9>RC7K>7R3?`0
+Z44 DEx4 work 7 control 0 22 mOXHdgdl41K<c1e0dMlfN1
+l34
+L33
+V3E@CJiCeSj^Xk893Mg9:L2
+!s100 3FSnPdAJ^X_JH8JBk^;RF0
 R6
 32
 !i10b 1
@@ -351,7 +351,7 @@ nbody
 !s100 `7MY]i1J_R17gz=]:NAe_3
 !i10b 1
 Emips_single
-Z71 w1446090887
+Z71 w1446097954
 R15
 R16
 R17
@@ -365,7 +365,7 @@ L9
 VOgo<4f5`o;iflRiNNU60X0
 R6
 32
-Z74 !s108 1446090892.746000
+Z74 !s108 1446097956.701000
 Z75 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mips_single.vhd|
 Z76 !s107 C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mips_single.vhd|
 R10
@@ -389,9 +389,9 @@ R17
 R1
 R2
 Z80 DEx4 work 11 mips_single 0 22 Ogo<4f5`o;iflRiNNU60X0
-l70
+l75
 L20
-Vi__8=d0[@4od;Q]RP6G[[0
+V[QiaX@Ae`ad>dFUQ]Oa:k2
 R6
 32
 R74
@@ -399,7 +399,7 @@ R75
 R76
 R10
 R11
-!s100 JkRkbb;IHFHmnzDTZoU_91
+!s100 cC8UIYQWKm79N8NP=lei10
 !i10b 1
 Emips_single_tb
 Z81 w1446083142

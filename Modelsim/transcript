@@ -2019,3 +2019,411 @@ run -all
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
 #    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
 run -all
+restart
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+add wave -position 12  sim:/mips_single_tb/U_MIPS_SINGLE/U_REG_FILE/reg_array(6)
+add wave -position 13  sim:/mips_single_tb/U_MIPS_SINGLE/U_REG_FILE/reg_array(5)
+add wave -position 14  sim:/mips_single_tb/U_MIPS_SINGLE/U_REG_FILE/reg_array(4)
+add wave -position 15  sim:/mips_single_tb/U_MIPS_SINGLE/U_REG_FILE/reg_array(3)
+restart
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+add wave -position 11  sim:/mips_single_tb/U_MIPS_SINGLE/U_ALU/overflow
+restart
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+restart
+# Break key hit 
+# Break key hit 
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+restart
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+restart
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+add wave -position 12  sim:/mips_single_tb/U_MIPS_SINGLE/U_ALU/control
+restart
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+add wave -position 18  sim:/mips_single_tb/U_MIPS_SINGLE/U_CONTROL/func
+restart
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+restart
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+restart
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+restart
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# Compile of alu.vhd was successful.
+# Compile of control.vhd was successful.
+# 2 compiles, 0 failed with no errors. 
+restart
+# Loading work.control(arch)
+# Loading work.alu(arch)
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+restart
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# Compile of control.vhd was successful.
+restart
+# Loading work.control(arch)
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+restart
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# Compile of control.vhd was successful.
+# Compile of mips_single.vhd was successful.
+# 2 compiles, 0 failed with no errors. 
+# Compile of mips_single.vhd was successful.
+restart
+# Loading work.mips_single(arch)
+# Loading work.control(arch)
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# Compile of control.vhd was successful.
+restart
+# Loading work.control(arch)
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# Compile of mips_single.vhd was successful.
+restart
+# Loading work.mips_single(arch)
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# Compile of control.vhd was successful.
+restart
+# Loading work.control(arch)
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 2  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 3  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 4  Instance: /mips_single_tb/U_MIPS_SINGLE/U_ALU

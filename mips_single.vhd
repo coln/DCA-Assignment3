@@ -45,6 +45,10 @@ architecture arch of mips_single is
 	signal alu_sign : std_logic;
 	signal alu_overflow : std_logic;
 	
+	-- Load Upper Immediate Mux (LUI)
+	signal lui_mux : std_logic_vector(WIDTH-1 downto 0);
+	signal lui_output : std_logic_vector(WIDTH-1 downto 0);
+	
 	-- PC to REG31 mux
 	signal pc2reg31_output : std_logic_vector(WIDTH-1 downto 0);
 	
@@ -64,6 +68,7 @@ architecture arch of mips_single is
 	signal ctrl_extender : std_logic;
 	signal ctrl_alu_src : std_logic;
 	signal ctrl_alu_op : std_logic_vector(ALU_OP_WIDTH-1 downto 0);
+	signal ctrl_lui_src : std_logic;
 	signal ctrl_mem_rd : std_logic;
 	signal ctrl_mem_wr : std_logic;
 	signal ctrl_mem2reg : std_logic;
@@ -133,6 +138,7 @@ begin
 			extender => ctrl_extender,
 			alu_src => ctrl_alu_src,
 			alu_op => ctrl_alu_op,
+			lui_src => ctrl_lui_src,
 			mem_rd => ctrl_mem_rd,
 			mem_wr => ctrl_mem_wr,
 			mem2reg => ctrl_mem2reg
@@ -248,6 +254,19 @@ begin
 		);
 	
 	
+	-- Load Upper Immediate (LUI): Imm[31:16] & Rt[15:0] or ALU ouptut
+	lui_mux <= instruction(ITYPE_IMMEDIATE_RANGE) & reg_output_B(WIDTH-ITYPE_IMMEDIATE_WIDTH-1 downto 0);
+	U_LUI_MUX : entity work.mux2
+		generic map (
+			WIDTH => WIDTH
+		)
+		port map (
+			sel => ctrl_lui_src,
+			in0 => alu_output,
+			in1 => lui_mux,
+			output => lui_output
+		);
+	
 	-- Jump and Link (JAL): PC + 4 or ALU to mem2reg MUX
 	U_PC2REG31_MUX : entity work.mux2
 		generic map (
@@ -255,7 +274,7 @@ begin
 		)
 		port map (
 			sel => ctrl_pc2reg31,
-			in0 => alu_output,
+			in0 => lui_output,
 			in1 => pc_inc,
 			output => pc2reg31_output
 		);
