@@ -25,26 +25,31 @@ entity data_memory_wrapper is
 end entity;
 
 architecture arch of data_memory_wrapper is
+	signal notclk : std_logic;
+	
+	-- Inputs
+	type write_sel_array is array (0 to 3) of std_logic_vector(1 downto 0);
+	signal write_sel : write_sel_array;
+	signal write_output : std_logic_vector(WIDTH-1 downto 0);
+	
+	signal global_read_en : std_logic;
+	signal global_write_en : std_logic;
 	signal read_en : std_logic_vector(3 downto 0);
 	signal write_en : std_logic_vector(3 downto 0);
-	signal address_temp : std_logic_vector(WIDTH-1 downto 0);
-	type byte_addr_array is array(3 downto 0) of std_logic_vector(1 downto 0);
-	signal byte_addr_wr : byte_addr_array;
 	
-	signal byte_mux_wr : std_logic_vector(WIDTH-1 downto 0);
-	signal half_mux_wr : std_logic_vector(WIDTH-1 downto 0);
-	signal word_mux_wr : std_logic_vector(WIDTH-1 downto 0);
+	type addr_wrap_array is array (0 to 3) of std_logic_vector(WIDTH-1 downto 0);
+	signal addr_wrap_around : addr_wrap_array;
 	
-	type temp_array is array (3 downto 0) of std_logic_vector(WIDTH-1 downto 0);
-	signal byte_mux_wr_temp : temp_array;
-	signal half_mux_wr_temp : temp_array;
-	signal word_mux_wr_temp : temp_array;
-	
-	
+	-- Outputs
+	---------------------------------------------
 	signal byte_mux_rd : std_logic_vector(WIDTH-1 downto 0);
 	signal half_mux_rd : std_logic_vector(WIDTH-1 downto 0);
-	signal half_mux_rd_temp : std_logic_vector((WIDTH/2)-1 downto 0);
+	signal half_mux_rd_temp0 : std_logic_vector((WIDTH/2)-1 downto 0);
+	signal half_mux_rd_temp1 : std_logic_vector((WIDTH/2)-1 downto 0);
+	signal half_mux_rd_temp2 : std_logic_vector((WIDTH/2)-1 downto 0);
+	signal half_mux_rd_temp3 : std_logic_vector((WIDTH/2)-1 downto 0);
 	signal word_mux_rd : std_logic_vector(WIDTH-1 downto 0);
+	signal word_mux_rd_temp0 : std_logic_vector(WIDTH-1 downto 0);
 	signal word_mux_rd_temp1 : std_logic_vector(WIDTH-1 downto 0);
 	signal word_mux_rd_temp2 : std_logic_vector(WIDTH-1 downto 0);
 	signal word_mux_rd_temp3 : std_logic_vector(WIDTH-1 downto 0);
@@ -52,276 +57,188 @@ architecture arch of data_memory_wrapper is
 	signal mem_data : std_logic_vector(WIDTH-1 downto 0);
 	signal mem_output : std_logic_vector(WIDTH-1 downto 0);
 begin
-
-	-- The following muxes simply rotate the data, so that it can be byte addressable
-	byte_addr_wr(3)(1) <= not address(1);
-	byte_addr_wr(3)(0) <= not address(0);
-	byte_addr_wr(2)(1) <= not (address(1) xor address(0));
-	byte_addr_wr(2)(0) <= address(0);
-	byte_addr_wr(1)(1) <= address(1);
-	byte_addr_wr(1)(0) <= not address(0);
-	byte_addr_wr(0)(1) <= address(1) xor address(0);
-	byte_addr_wr(0)(0) <= address(0);
 	
-	-- We are byte addressing, only allow a single byte through (the LSB)
-	byte_mux_wr_temp(0)(31 downto 24) <= data(7 downto 0);
-	byte_mux_wr_temp(0)(23 downto 0) <= (others => '0');
-	byte_mux_wr_temp(1)(31 downto 24) <= (others => '0');
-	byte_mux_wr_temp(1)(23 downto 16) <= data(7 downto 0);
-	byte_mux_wr_temp(1)(15 downto 0) <= (others => '0');
-	byte_mux_wr_temp(2)(31 downto 16) <= (others => '0');
-	byte_mux_wr_temp(2)(15 downto 8) <= data(7 downto 0);
-	byte_mux_wr_temp(2)(7 downto 0) <= (others => '0');
-	byte_mux_wr_temp(3)(31 downto 8) <= (others => '0');
-	byte_mux_wr_temp(3)(7 downto 0) <= data(7 downto 0);
-	U_BYTE_MUX : entity work.mux4
-		generic map (
-			WIDTH => WIDTH
-		)
-		port map (
-			sel => address(1 downto 0),
-			in0 => byte_mux_wr_temp(0),
-			in1 => byte_mux_wr_temp(1),
-			in2 => byte_mux_wr_temp(2),
-			in3 => byte_mux_wr_temp(3),
-			output => byte_mux_wr
-		);
+	-- Write on falling edge
+	notclk <= not clk;
 	
-	half_mux_wr_temp(0)(31 downto 16) <= data(15 downto 0);
-	half_mux_wr_temp(0)(15 downto 0) <= (others => '0');
-	half_mux_wr_temp(1)(31 downto 24) <= (others => '0');
-	half_mux_wr_temp(1)(23 downto 8) <= data(15 downto 0);
-	half_mux_wr_temp(1)(7 downto 0) <= (others => '0');
-	half_mux_wr_temp(2)(31 downto 16) <= (others => '0');
-	half_mux_wr_temp(2)(15 downto 0) <= data(15 downto 0);
-	half_mux_wr_temp(3)(31 downto 24) <= data(7 downto 0);
-	half_mux_wr_temp(3)(23 downto 8) <= (others => '0');
-	half_mux_wr_temp(3)(7 downto 0) <= data(15 downto 8);
-	U_HALF_MUX : entity work.mux4
-		generic map (
-			WIDTH => WIDTH
-		)
-		port map (
-			sel => address(1 downto 0),
-			in0 => half_mux_wr_temp(0),
-			in1 => half_mux_wr_temp(1),
-			in2 => half_mux_wr_temp(2),
-			in3 => half_mux_wr_temp(3),
-			output => half_mux_wr
-		);
+	-- The memory blocks are ordered sequentially by address 0, 1, 2, 3, 4....
+	-- While the data is order by MSB->LSB (3, 2, 1, 0)
+	process(address, data, rden, wren, byte, half)
+	begin
+		write_output <= (others => '0');
+		if(byte = '1') then
+			case address(1 downto 0) is
+				when "00" =>
+					write_output(31 downto 24) <= data(7 downto 0);
+				when "01" =>
+					write_output(23 downto 16) <= data(7 downto 0);
+				when "10" =>
+					write_output(15 downto 8) <= data(7 downto 0);
+				when "11" =>
+					write_output(7 downto 0) <= data(7 downto 0);
+				when others => null;
+			end case;
+		elsif(half = '1') then
+			case address(1 downto 0) is
+				when "00" =>
+					write_output(31 downto 16) <= data(15 downto 0);
+				when "01" =>
+					write_output(23 downto 8) <= data(15 downto 0);
+				when "10" =>
+					write_output(15 downto 0) <= data(15 downto 0);
+				when "11" =>
+					write_output(7 downto 0) <= data(15 downto 8);
+					write_output(31 downto 24) <= data(7 downto 0);
+				when others => null;
+			end case;
+		else
+			case address(1 downto 0) is
+				when "00" =>
+					write_output <= data;
+				when "01" =>
+					write_output(23 downto 0) <= data(31 downto 8);
+					write_output(31 downto 24) <= data(7 downto 0);
+				when "10" =>
+					write_output(15 downto 0) <= data(31 downto 16);
+					write_output(31 downto 16) <= data(15 downto 0);
+				when "11" =>
+					write_output(7 downto 0) <= data(31 downto 24);
+					write_output(31 downto 8) <= data(23 downto 0);
+				when others => null;
+			end case;
+		end if;
+	end process;
 	
-	word_mux_wr_temp(0)(31 downto 0) <= data(31 downto 0);
-	word_mux_wr_temp(1)(23 downto 0) <= data(31 downto 8);
-	word_mux_wr_temp(1)(31 downto 24) <= data(7 downto 0);
-	word_mux_wr_temp(2)(15 downto 0) <= data(31 downto 16);
-	word_mux_wr_temp(2)(31 downto 16) <= data(15 downto 0);
-	word_mux_wr_temp(3)(7 downto 0) <= data(31 downto 24);
-	word_mux_wr_temp(3)(31 downto 8) <= data(23 downto 0);
-	U_WORD_MUX : entity work.mux4
-		generic map (
-			WIDTH => WIDTH
-		)
-		port map (
-			sel => address(1 downto 0),
-			in0 => word_mux_wr_temp(0),
-			in1 => word_mux_wr_temp(1),
-			in2 => word_mux_wr_temp(2),
-			in3 => word_mux_wr_temp(3),
-			output => word_mux_wr
-		);
-	
-	-- Select between byte, half word, and word store
-	mem_data_sel(1) <= byte;
-	mem_data_sel(0) <= half;
-	U_DATA_MUX : entity work.mux4
-		generic map (
-			WIDTH => WIDTH
-		)
-		port map (
-			sel => mem_data_sel,
-			in0 => word_mux_wr,
-			in1 => half_mux_wr,
-			in2 => byte_mux_wr,
-			in3 => (others => '0'),
-			output => mem_data
-		);
-	
-	
-	
-	
+	-- Only enable memories when in address range of DATA_BASE_ADDR
+	global_read_en <= not rst
+				and rden
+				and bool2logic(address(31 downto 10) = DATA_BASE_ADDR(31 downto 10));
+	global_write_en <= not rst
+				and wren
+				and bool2logic(address(31 downto 10) = DATA_BASE_ADDR(31 downto 10));
+	read_en(0) <= global_read_en
+				  and (bool2logic(address(1 downto 0) = "00")
+				  or bool2logic(address(1 downto 0) = "01" and byte = '0' and half = '0')
+				  or bool2logic(address(1 downto 0) = "10" and byte = '0' and half = '0')
+				  or bool2logic(address(1 downto 0) = "11" and byte = '0'));
+	write_en(0) <= global_write_en
+				  and (bool2logic(address(1 downto 0) = "00")
+				  or bool2logic(address(1 downto 0) = "01" and byte = '0' and half = '0')
+				  or bool2logic(address(1 downto 0) = "10" and byte = '0' and half = '0')
+				  or bool2logic(address(1 downto 0) = "11" and byte = '0'));
+	read_en(1) <= global_read_en
+				  and (bool2logic(address(1 downto 0) = "00" and byte = '0')
+				  or bool2logic(address(1 downto 0) = "01")
+				  or bool2logic(address(1 downto 0) = "10" and byte = '0' and half = '0')
+				  or bool2logic(address(1 downto 0) = "11" and byte = '0' and half = '0'));
+	write_en(1) <= global_write_en
+				  and (bool2logic(address(1 downto 0) = "00" and byte = '0')
+				  or bool2logic(address(1 downto 0) = "01")
+				  or bool2logic(address(1 downto 0) = "10" and byte = '0' and half = '0')
+				  or bool2logic(address(1 downto 0) = "11" and byte = '0' and half = '0'));
+	read_en(2) <= global_read_en
+				  and (bool2logic(address(1 downto 0) = "00" and byte = '0' and half = '0')
+				  or bool2logic(address(1 downto 0) = "01" and byte = '0')
+				  or bool2logic(address(1 downto 0) = "10")
+				  or bool2logic(address(1 downto 0) = "11" and byte = '0' and half = '0'));
+	write_en(2) <= global_write_en
+				  and (bool2logic(address(1 downto 0) = "00" and byte = '0' and half = '0')
+				  or bool2logic(address(1 downto 0) = "01" and byte = '0')
+				  or bool2logic(address(1 downto 0) = "10")
+				  or bool2logic(address(1 downto 0) = "11" and byte = '0' and half = '0'));
+	read_en(3) <= global_read_en
+				  and (bool2logic(address(1 downto 0) = "00" and byte = '0' and half = '0')
+				  or bool2logic(address(1 downto 0) = "01" and byte = '0' and half = '0')
+				  or bool2logic(address(1 downto 0) = "10" and byte = '0')
+				  or bool2logic(address(1 downto 0) = "11"));
+	write_en(3) <= global_write_en
+				  and (bool2logic(address(1 downto 0) = "00" and byte = '0' and half = '0')
+				  or bool2logic(address(1 downto 0) = "01" and byte = '0' and half = '0')
+				  or bool2logic(address(1 downto 0) = "10" and byte = '0')
+				  or bool2logic(address(1 downto 0) = "11"));
 	
 	
 	-- Main memory module
-	read_en(0) <= not rst
-				  and rden
-				  and bool2logic(address(31 downto 10) = DATA_BASE_ADDR(31 downto 10))
-				  and bool2logic((address(1 downto 0) = "00")
-				  		or (address(1 downto 0) = "01" and (byte = '0' and half = '0'))
-				  		or (address(1 downto 0) = "10" and (byte = '0' and half = '0'))
-				  		or (address(1 downto 0) = "11" and byte = '0')
-				  );
-	write_en(0) <= not rst
-				   and wren
-				   and bool2logic(address(31 downto 10) = DATA_BASE_ADDR(31 downto 10))
-				   and bool2logic((address(1 downto 0) = "00")
-				  		or (address(1 downto 0) = "01" and (byte = '0' and half = '0'))
-				  		or (address(1 downto 0) = "10" and (byte = '0' and half = '0'))
-				  		or (address(1 downto 0) = "11" and byte = '0')
-				  );
-	U_DATA_MEMORY0: entity work.data_memory
-		port map (
-			address => address(9 downto 2),
-			clock => clk,
-			data => mem_data(31 downto 24),
-			rden => read_en(0),
-			wren => write_en(1),
-			q => mem_output(31 downto 24)
-		);
-	read_en(1) <= not rst
-				  and rden
-				  and bool2logic(address(31 downto 10) = DATA_BASE_ADDR(31 downto 10))
-				  and bool2logic((address(1 downto 0) = "00" and byte = '0')
-				  		or (address(1 downto 0) = "01")
-				  		or (address(1 downto 0) = "10" and (byte = '0' and half = '0'))
-				  		or (address(1 downto 0) = "11" and (byte = '0' and half = '0'))
-				  );
-	write_en(1) <= not rst
-				   and wren
-				   and bool2logic(address(31 downto 10) = DATA_BASE_ADDR(31 downto 10))
-				   and bool2logic((address(1 downto 0) = "00" and byte = '0')
-				  		or (address(1 downto 0) = "01")
-				  		or (address(1 downto 0) = "10" and byte = '0' and half = '0')
-				  		or (address(1 downto 0) = "11" and byte = '0' and half = '0')
-				  );
-	U_DATA_MEMORY1: entity work.data_memory
-		port map (
-			address => address(9 downto 2),
-			clock => clk,
-			data => mem_data(23 downto 16),
-			rden => read_en(1),
-			wren => write_en(1),
-			q => mem_output(23 downto 16)
-		);
-	read_en(2) <= not rst
-				  and rden
-				  and bool2logic(address(31 downto 10) = DATA_BASE_ADDR(31 downto 10))
-				  and bool2logic((address(1 downto 0) = "00" and (byte = '0' and half = '0'))
-				  		or (address(1 downto 0) = "01" and not byte = '0')
-				  		or (address(1 downto 0) = "10")
-				  		or (address(1 downto 0) = "11" and (byte = '0' and half = '0'))
-				  );
-	write_en(2) <= not rst
-				   and wren
-				   and bool2logic(address(31 downto 10) = DATA_BASE_ADDR(31 downto 10))
-				   and bool2logic((address(1 downto 0) = "00" and (byte = '0' and half = '0'))
-				  		or (address(1 downto 0) = "01" and not byte = '0')
-				  		or (address(1 downto 0) = "10")
-				  		or (address(1 downto 0) = "11" and (byte = '0' and half = '0'))
-				  );
-	U_DATA_MEMORY2: entity work.data_memory
-		port map (
-			address => address(9 downto 2),
-			clock => clk,
-			data => mem_data(15 downto 8),
-			rden => read_en(2),
-			wren => write_en(2),
-			q => mem_output(15 downto 8)
-		);
-	read_en(3) <= not rst
-				  and rden
-				  and bool2logic(address(31 downto 10) = DATA_BASE_ADDR(31 downto 10))
-				  and bool2logic((address(1 downto 0) = "00" and (byte = '0' and half = '0'))
-				  		or (address(1 downto 0) = "01" and (byte = '0' and half = '0'))
-				  		or (address(1 downto 0) = "10" and not byte = '0')
-				  		or (address(1 downto 0) = "11")
-				  );
-	write_en(3) <= not rst
-				   and wren
-				   and bool2logic(address(31 downto 10) = DATA_BASE_ADDR(31 downto 10))
-				   and bool2logic((address(1 downto 0) = "00" and (byte = '0' and half = '0'))
-				  		or (address(1 downto 0) = "01" and (byte = '0' and half = '0'))
-				  		or (address(1 downto 0) = "10" and not byte = '0')
-				  		or (address(1 downto 0) = "11")
-				  );
-	address_temp <= std_logic_vector(
+	-- Increment each module address that is before address(1 downto 0)
+	addr_wrap_around(0) <= std_logic_vector(
 						unsigned(address)
-						+ SHIFT_LEFT(unsigned(bool2slv((half = '1'), 32)), 2)
+						+ SHIFT_LEFT(unsigned(
+							bool2slv(unsigned(address(1 downto 0)) > to_unsigned(0, 2), 32)
+						  ), 2)
 					);
-	U_DATA_MEMORY3: entity work.data_memory
-		port map (
-			address => address_temp(9 downto 2),
-			clock => clk,
-			data => mem_data(7 downto 0),
-			rden => read_en(3),
-			wren => write_en(3),
-			q => mem_output(7 downto 0)
-		);
-	
-	
-	
-	
+	addr_wrap_around(1) <= std_logic_vector(
+						unsigned(address)
+						+ SHIFT_LEFT(unsigned(
+							bool2slv(unsigned(address(1 downto 0)) > to_unsigned(1, 2), 32)
+						  ), 2)
+					);
+	addr_wrap_around(2) <= std_logic_vector(
+						unsigned(address)
+						+ SHIFT_LEFT(unsigned(
+							bool2slv(unsigned(address(1 downto 0)) > to_unsigned(2, 2), 32)
+						  ), 2)
+					);
+	addr_wrap_around(3) <= address;
+	U_DATA_MEM : for i in 0 to 3 generate
+		U_DATA_MODULE: entity work.data_memory
+			port map (
+				rdaddress => addr_wrap_around(i)(9 downto 2),
+				wraddress => addr_wrap_around(i)(9 downto 2),
+				rdclock => clk,
+				wrclock => notclk,
+				data => write_output((31 - i*8) downto (24 - i*8)),
+				rden => read_en(i),
+				wren => write_en(i),
+				q => mem_output((31 - i*8) downto (24 - i*8))
+			);
+	end generate;
 	
 	
 	-- Now do the same thing for reads
-	U_BYTE_MUX_RD : entity work.mux4
-		generic map (
-			WIDTH => WIDTH / 4
-		)
-		port map (
-			sel => address(1 downto 0),
-			in0 => mem_output(31 downto 24),
-			in1 => mem_output(23 downto 16),
-			in2 => mem_output(15 downto 8),
-			in3 => mem_output(7 downto 0),
-			output => byte_mux_rd(7 downto 0)
-		);
-	byte_mux_rd(WIDTH-1 downto 8) <= (others => '0');
-	
-	half_mux_rd_temp <= mem_output(7 downto 0) & mem_output(31 downto 24);
-	U_HALF_MUX_RD : entity work.mux4
-		generic map (
-			WIDTH => WIDTH / 2
-		)
-		port map (
-			sel => address(1 downto 0),
-			in0 => half_mux_rd_temp,
-			in1 => mem_output(31 downto 16),
-			in2 => mem_output(23 downto 8),
-			in3 => mem_output(15 downto 0),
-			output => half_mux_rd(15 downto 0)
-		);
-	half_mux_rd(WIDTH-1 downto 16) <= (others => '0');
-	
-	
-	word_mux_rd_temp1 <= mem_output(23 downto 0) & mem_output(31 downto 24);
-	word_mux_rd_temp2 <= mem_output(15 downto 0) & mem_output(31 downto 16);
-	word_mux_rd_temp3 <= mem_output(7 downto 0) & mem_output(31 downto 8);
-	U_WORD_MUX_RD : entity work.mux4
-		generic map (
-			WIDTH => WIDTH
-		)
-		port map (
-			sel => address(1 downto 0),
-			in0 => word_mux_rd_temp3,
-			in1 => word_mux_rd_temp2,
-			in2 => word_mux_rd_temp1,
-			in3 => mem_output(31 downto 0),
-			output => word_mux_rd
-		);
-	
-	-- Send final chunk to output
-	U_DATA_MUX_RD : entity work.mux4
-		generic map (
-			WIDTH => WIDTH
-		)
-		port map (
-			sel => mem_data_sel,
-			in0 => word_mux_rd,
-			in1 => half_mux_rd,
-			in2 => byte_mux_rd,
-			in3 => (others => '0'),
-			output => output
-		);
-	
+	process(address, data, rden, wren, byte, half, mem_output)
+	begin
+		output <= (others => '0');
+		-- Only output if reading (the altsyncram doesn't clear mem_output
+		-- for some reason)
+		if(rden = '1') then
+			if(byte = '1') then
+				case address(1 downto 0) is
+					when "00" =>
+						output(7 downto 0) <= mem_output(31 downto 24);
+					when "01" =>
+						output(7 downto 0) <= mem_output(23 downto 16);
+					when "10" =>
+						output(7 downto 0) <= mem_output(15 downto 8);
+					when "11" =>
+						output(7 downto 0) <= mem_output(7 downto 0);
+					when others => null;
+				end case;
+			elsif(half = '1') then
+				case address(1 downto 0) is
+					when "00" =>
+						output(15 downto 0) <= mem_output(31 downto 16);
+					when "01" =>
+						output(15 downto 0) <= mem_output(23 downto 8);
+					when "10" =>
+						output(15 downto 0) <= mem_output(15 downto 0);
+					when "11" =>
+						output(15 downto 0) <= mem_output(7 downto 0) & mem_output(31 downto 24);
+					when others => null;
+				end case;
+			else
+				case address(1 downto 0) is
+					when "00" =>
+						output(31 downto 0) <= mem_output(31 downto 0);
+					when "01" =>
+						output(31 downto 0) <= mem_output(23 downto 0) & mem_output(31 downto 24);
+					when "10" =>
+						output(31 downto 0) <= mem_output(15 downto 0) & mem_output(31 downto 16);
+					when "11" =>
+						output(31 downto 0) <= mem_output(7 downto 0) & mem_output(31 downto 8);
+					when others => null;
+				end case;
+			end if;
+		end if;
+	end process;
 
 end architecture;

@@ -6,6 +6,7 @@ Simple MIPS Disassembler for the 29 Core Instructions
 """
 
 import sys
+import os
 
 # Errors
 class UnknownOpcodeError(Exception):
@@ -245,17 +246,19 @@ class Disassembler:
 
 # Main code   
 def main():
-   for i in range(1, len(sys.argv)):
-      disassembler = Disassembler()
-      disassembler.setFileInput(sys.argv[i])
-      
-      try:
-         disassembler.disassembleFile()
-      except UnknownOpcodeError as err:
-         print(err)
-         return 2
-      
-      disassembler.exportData("dsm.txt")      
+   disassembler = Disassembler()
+   disassembler.setFileInput(sys.argv[1])
+   
+   try:
+      disassembler.disassembleFile()
+   except UnknownOpcodeError as err:
+      print(err)
+      return 2
+   
+   disassembler.exportData(sys.argv[2])
+   print("Success!")
+   print("Output file:")
+   print(os.path.abspath(sys.argv[2]))
 
 if __name__ == "__main__":
    sys.exit(main())

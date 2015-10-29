@@ -104,6 +104,18 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity control
 -- Compiling architecture arch of control
 
+} {} {}} {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/alu.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/alu.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package MATH_REAL
+-- Loading package lib
+-- Compiling entity alu
+-- Compiling architecture arch of alu
+-- Loading entity mux4
+
 } {} {}} {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mips_single.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/mips_single.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -124,18 +136,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading entity alu_control
 -- Loading entity alu
 -- Loading entity data_memory_wrapper
-
-} {} {}} {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/alu.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/alu.vhd}
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package MATH_REAL
--- Loading package lib
--- Compiling entity alu
--- Compiling architecture arch of alu
--- Loading entity mux4
 
 } {} {}} {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/Quartus/instr_memory.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/Quartus/instr_memory.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012

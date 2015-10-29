@@ -360,8 +360,6 @@ class Assembler:
          output += "\n"
          output += "END;\n"
          outputFile.write(output)
-         print("Success!")
-         print("Assembled file output: " + os.path.abspath(outputFile.name))
 
 
 
@@ -377,7 +375,10 @@ def main():
       return 2
    
    assembler.assembleFile()
-   assembler.exportData(sys.argv[2])      
+   assembler.exportData(sys.argv[2])
+   print("Success!")
+   print("Output File: ")
+   print(os.path.abspath(sys.argv[2]))
 
 if __name__ == "__main__":
    sys.exit(main())
