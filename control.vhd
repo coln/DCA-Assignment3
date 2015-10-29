@@ -15,6 +15,7 @@ entity control is
 		beq : out std_logic;
 		bne : out std_logic;
 		jump : out std_logic;
+		pc2reg31 : out std_logic;
 		reg_dest : out std_logic;
 		reg_wr : out std_logic;
 		extender : out std_logic;
@@ -34,6 +35,7 @@ begin
 		beq <= '0';
 		bne <= '0';
 		jump <= '0';
+		pc2reg31 <= '0';
 		reg_dest <= '0';
 		reg_wr <= '0';
 		extender <= '1'; -- Sign extend is default
@@ -70,10 +72,20 @@ begin
 				alu_src <= '1';
 				alu_op <= ALU_OP_OR;
 			
+			when OPCODE_SLTI =>
+			when OPCODE_SLTIU =>
+			
+			when OPCODE_SB =>
+			when OPCODE_SH =>
+			
 			when OPCODE_SW =>
 				alu_src <= '1';
 				alu_op <= ALU_OP_ADD;
 				mem_wr <= '1';
+			
+			when OPCODE_LBU =>
+			when OPCODE_LHU =>
+			when OPCODE_LUI =>
 			
 			when OPCODE_LW =>
 				reg_wr <= '1';
@@ -89,7 +101,14 @@ begin
 			when OPCODE_BNE =>
 				bne <= '1';
 				alu_op <= ALU_OP_SUB;
+			
+			when OPCODE_J =>
+				jump <= '1';
 				
+			when OPCODE_JAL =>
+				jump <= '1';
+				reg_wr <= '1';
+				pc2reg31 <= '1';
 				
 			when others => null;
 		end case;

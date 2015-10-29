@@ -193,7 +193,7 @@ class Assembler:
       return offset
 
    def getAddressFromArg(self, arg):
-      """ Try evaluating the address as a number. If that fails
+      """ Try evaluating the address as a hex number. If that fails
       then the address is a label
       """
       offset = 0
@@ -219,8 +219,9 @@ class Assembler:
       line = line.split(self.COMMENT_CHAR, 1)[0]  # Remove comments
       line = line.split(" ")  # Separate components
       
-      # Empty line
+      # Empty line (don't count it)
       if len(line) == 1 and line[0] == '':
+         self.line_number -= 1
          return
       
       # Gather all labels
@@ -256,6 +257,7 @@ class Assembler:
       
       # Empty line
       if len(line) == 1 and line[0] == '':
+         self.line_number -= 1
          return
       
       # Skip label definitions and don't count line number

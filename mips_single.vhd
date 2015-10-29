@@ -21,9 +21,11 @@ architecture arch of mips_single is
 	signal instruction : std_logic_vector(WIDTH-1 downto 0);
 	signal pc_clk : std_logic;
 	signal pc : std_logic_vector(WIDTH-1 downto 0);
+	signal pc_inc : std_logic_vector(WIDTH-1 downto 0);
 	signal pc_en : std_logic;
 	
 	-- Register File
+	signal dest_mux_output : std_logic_vector(get_log2(WIDTH)-1 downto 0);
 	signal reg_output_A : std_logic_vector(WIDTH-1 downto 0);
 	signal reg_output_B : std_logic_vector(WIDTH-1 downto 0);
 	signal reg_write_addr : std_logic_vector(get_log2(WIDTH)-1 downto 0);
@@ -42,6 +44,9 @@ architecture arch of mips_single is
 	signal alu_sign : std_logic;
 	signal alu_overflow : std_logic;
 	
+	-- PC to REG31 mux
+	signal pc2reg31_output : std_logic_vector(WIDTH-1 downto 0);
+	
 	-- Memory
 	signal data_read_en : std_logic;
 	signal data_write_en : std_logic;
@@ -51,6 +56,7 @@ architecture arch of mips_single is
 	signal ctrl_beq : std_logic;
 	signal ctrl_bne : std_logic;
 	signal ctrl_jump : std_logic;
+	signal ctrl_pc2reg31 : std_logic;
 	signal ctrl_reg_dest : std_logic;
 	signal ctrl_reg_wr : std_logic;
 	signal ctrl_extender : std_logic;
@@ -93,7 +99,8 @@ begin
 			bne => ctrl_bne,
 			jump => ctrl_jump,
 			zero => alu_zero,
-			pc => pc
+			pc => pc,
+			pc_inc => pc_inc
 		);
 	
 	-- Control Logic
@@ -103,6 +110,7 @@ begin
 			beq => ctrl_beq,
 			bne => ctrl_bne,
 			jump => ctrl_jump,
+			pc2reg31 => ctrl_pc2reg31,
 			reg_dest => ctrl_reg_dest,
 			reg_wr => ctrl_reg_wr,
 			extender => ctrl_extender,
@@ -122,6 +130,18 @@ begin
 			sel => ctrl_reg_dest,
 			in0 => instruction(RT_RANGE),
 			in1 => instruction(RTYPE_RD_RANGE),
+			output => dest_mux_output
+		);
+	
+	-- Jump and Link (selects between DEST_MUX and register 31)
+	U_JAL_MUX : entity work.mux2
+		generic map (
+			WIDTH => get_log2(WIDTH)
+		)
+		port map (
+			sel => ctrl_pc2reg31,
+			in0 => dest_mux_output,
+			in1 => int2slv(31, get_log2(WIDTH)),
 			output => reg_write_addr
 		);
 	
@@ -210,6 +230,19 @@ begin
 			q => data_mem_output
 		);
 	
+	
+	-- Jump and Link (JAL): PC + 4 or ALU to mem2reg MUX
+	U_PC2REG31_MUX : entity work.mux2
+		generic map (
+			WIDTH => WIDTH
+		)
+		port map (
+			sel => ctrl_pc2reg31,
+			in0 => alu_output,
+			in1 => pc_inc,
+			output => pc2reg31_output
+		);
+	
 	--  Memory-to-Reg Mux (between ALU and Data Memory)
 	U_MEM2REG_MUX : entity work.mux2
 		generic map (
@@ -217,7 +250,7 @@ begin
 		)
 		port map (
 			sel => ctrl_mem2reg,
-			in0 => alu_output,
+			in0 => pc2reg31_output,
 			in1 => data_mem_output,
 			output => reg_write_data
 		);

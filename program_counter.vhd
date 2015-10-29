@@ -6,6 +6,8 @@ use work.lib.all;
 -- Note: The Immediate input must already be sign-extended to WIDTH bits
 -- Note: The PC always adds 4, so when calculating branch addresses, they should
 -- be calculated from the address following the condition
+--
+-- The output signal "pc_inc" is only used for the JAL instruction
 entity program_counter is
 	generic (
 		WIDTH : positive := 32
@@ -19,7 +21,8 @@ entity program_counter is
 		bne : in std_logic;
 		jump : in std_logic;
 		zero : in std_logic;
-		pc : out std_logic_vector(WIDTH-1 downto 0)
+		pc : out std_logic_vector(WIDTH-1 downto 0);
+		pc_inc : out std_logic_vector(WIDTH-1 downto 0)
 	);
 end entity;
 
@@ -35,6 +38,9 @@ architecture arch of program_counter is
 	signal new_jump_address : std_logic_vector(WIDTH-1 downto 0);
 	signal next_pc : std_logic_vector(WIDTH-1 downto 0);
 begin
+	
+	-- Used only with the JAL instruction
+	pc_inc <= pc_inc1_output;
 	
 	-- Because the PC starts off by incrementing, delay one cycle after reset
 	-- to allow the first address to propagate through the processor
