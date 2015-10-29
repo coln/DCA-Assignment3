@@ -22,6 +22,7 @@ architecture arch of mips_single is
 	signal pc_clk : std_logic;
 	signal pc : std_logic_vector(WIDTH-1 downto 0);
 	signal pc_inc : std_logic_vector(WIDTH-1 downto 0);
+	signal pc_jump_address : std_logic_vector(JTYPE_ADDRESS_WIDTH-1 downto 0);
 	signal pc_en : std_logic;
 	
 	-- Register File
@@ -56,6 +57,7 @@ architecture arch of mips_single is
 	signal ctrl_beq : std_logic;
 	signal ctrl_bne : std_logic;
 	signal ctrl_jump : std_logic;
+	signal ctrl_jump_addr_src : std_logic;
 	signal ctrl_pc2reg31 : std_logic;
 	signal ctrl_reg_dest : std_logic;
 	signal ctrl_reg_wr : std_logic;
@@ -80,6 +82,19 @@ begin
 			q => instruction
 		);
 	
+	-- Jump Address mux (selects between address in instruction and in regster)
+	-- Used with J, JAL, and JR
+	U_JUMP_ADDRESS_MUX : entity work.mux2
+		generic map (
+			WIDTH => JTYPE_ADDRESS_WIDTH
+		)
+		port map (
+			sel => ctrl_jump_addr_src,
+			in0 => instruction(JTYPE_ADDRESS_RANGE),
+			in1 => reg_output_A(JTYPE_ADDRESS_WIDTH-1 downto 0),
+			output => pc_jump_address
+		);
+	
 	-- Program Counter (updates on falling edge)
 	-- Would normally shift the extender output left by 2 for the word address boundary,
 	-- but I am using 32-bit wide instruction memory, so this is unnecessary
@@ -94,7 +109,7 @@ begin
 			clk => pc_clk,
 			rst => rst,
 			immediate => extender_output,
-			jump_address => instruction(JTYPE_ADDRESS_RANGE),
+			jump_address => pc_jump_address,
 			beq => ctrl_beq,
 			bne => ctrl_bne,
 			jump => ctrl_jump,
@@ -107,9 +122,11 @@ begin
 	U_CONTROL : entity work.control
 		port map (
 			opcode => instruction(OPCODE_RANGE),
+			func => instruction(RTYPE_FUNC_RANGE),
 			beq => ctrl_beq,
 			bne => ctrl_bne,
 			jump => ctrl_jump,
+			jump_addr_src => ctrl_jump_addr_src,
 			pc2reg31 => ctrl_pc2reg31,
 			reg_dest => ctrl_reg_dest,
 			reg_wr => ctrl_reg_wr,

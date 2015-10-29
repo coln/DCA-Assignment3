@@ -12,9 +12,11 @@ use work.lib.all;
 entity control is
 	port (
 		opcode : in std_logic_vector(OPCODE_RANGE);
+		func : in std_logic_vector(RTYPE_FUNC_WIDTH-1 downto 0);
 		beq : out std_logic;
 		bne : out std_logic;
 		jump : out std_logic;
+		jump_addr_src : out std_logic;
 		pc2reg31 : out std_logic;
 		reg_dest : out std_logic;
 		reg_wr : out std_logic;
@@ -30,11 +32,12 @@ end entity;
 architecture arch of control is
 begin
 	
-	process(opcode)
+	process(opcode, func)
 	begin
 		beq <= '0';
 		bne <= '0';
 		jump <= '0';
+		jump_addr_src <= '0';
 		pc2reg31 <= '0';
 		reg_dest <= '0';
 		reg_wr <= '0';
@@ -47,9 +50,14 @@ begin
 		
 		case opcode is
 			when OPCODE_RTYPE =>
-				reg_dest <= '1';
-				reg_wr <= '1';
-				alu_op <= ALU_OP_FUNC;
+				if(func = RTYPE_FUNC_JR) then
+					jump <= '1';
+					jump_addr_src <= '1';
+				else
+					reg_dest <= '1';
+					reg_wr <= '1';
+					alu_op <= ALU_OP_FUNC;
+				end if;
 			
 			when OPCODE_ADDI =>
 				reg_wr <= '1';
@@ -111,9 +119,8 @@ begin
 				pc2reg31 <= '1';
 				
 			when others => null;
-		end case;
 			
-		
+		end case;
 	end process;
 	
 end arch;
