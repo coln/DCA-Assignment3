@@ -1,6 +1,6 @@
 EDA Netlist Writer report for mips_single
-Wed Oct 28 19:28:04 2015
-Quartus II 64-Bit Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
+Thu Oct 29 20:54:11 2015
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
 ---------------------
@@ -17,7 +17,7 @@ Quartus II 64-Bit Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 1991-2014 Altera Corporation
+Copyright (C) 1991-2013 Altera Corporation
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -36,7 +36,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Wed Oct 28 19:28:04 2015 ;
+; EDA Netlist Writer Status ; Successful - Thu Oct 29 20:54:11 2015 ;
 ; Revision Name             ; mips_single                           ;
 ; Top-level Entity Name     ; mips_single                           ;
 ; Family                    ; Cyclone IV GX                         ;
@@ -87,8 +87,8 @@ applicable agreement for further details.
 +-----------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit EDA Netlist Writer
-    Info: Version 13.1.4 Build 182 03/12/2014 SJ Web Edition
-    Info: Processing started: Wed Oct 28 19:28:03 2015
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Thu Oct 29 20:54:10 2015
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off mips_single -c mips_single
 Info (204019): Generated file mips_single_7_1200mv_100c_slow.vho in folder "C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/Quartus/simulation/modelsim/" for EDA simulation tool
 Info (204019): Generated file mips_single_7_1200mv_-40c_slow.vho in folder "C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/Quartus/simulation/modelsim/" for EDA simulation tool
@@ -100,7 +100,7 @@ Info (204019): Generated file mips_single_min_1200mv_-40c_vhd_fast.sdo in folder
 Info (204019): Generated file mips_single_vhd.sdo in folder "C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/Quartus/simulation/modelsim/" for EDA simulation tool
 Info: Quartus II 64-Bit EDA Netlist Writer was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 498 megabytes
-    Info: Processing ended: Wed Oct 28 19:28:04 2015
+    Info: Processing ended: Thu Oct 29 20:54:11 2015
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

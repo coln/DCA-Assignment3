@@ -1,5 +1,5 @@
 Analysis & Synthesis report for mips_single
-Thu Oct 29 17:12:39 2015
+Thu Oct 29 20:53:27 2015
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -82,7 +82,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Oct 29 17:12:38 2015      ;
+; Analysis & Synthesis Status        ; Successful - Thu Oct 29 20:53:27 2015      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; mips_single                                ;
 ; Top-level Entity Name              ; mips_single                                ;
@@ -91,7 +91,7 @@ applicable agreement for further details.
 ;     Total combinational functions  ; 0                                          ;
 ;     Dedicated logic registers      ; 0                                          ;
 ; Total registers                    ; 0                                          ;
-; Total pins                         ; 35                                         ;
+; Total pins                         ; 3                                          ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0                                          ;
 ; Embedded Multiplier 9-bit elements ; 0                                          ;
@@ -233,7 +233,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; altram.inc                       ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/altram.inc                                                ;         ;
 ; altdpram.inc                     ; yes             ; Megafunction                           ; c:/altera/13.1/quartus/libraries/megafunctions/altdpram.inc                                              ;         ;
 ; db/altsyncram_ogs3.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/Quartus/db/altsyncram_ogs3.tdf ;         ;
-; TEST.mif                         ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/Quartus/TEST.mif               ;         ;
+; test.mif                         ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/Quartus/test.mif               ;         ;
 ; db/altsyncram_aup3.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/Colin/Documents/UF/Fall 2015/Digital Computer Architecture/Lab 3/Quartus/db/altsyncram_aup3.tdf ;         ;
 +----------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------------------------------------------------+---------+
 
@@ -243,11 +243,11 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------------------+------------------+
 ; Resource                 ; Usage            ;
 +--------------------------+------------------+
-; I/O pins                 ; 35               ;
+; I/O pins                 ; 3                ;
 ; DSP block 9-bit elements ; 0                ;
 ; Maximum fan-out node     ; clk              ;
 ; Maximum fan-out          ; 1                ;
-; Total fan-out            ; 35               ;
+; Total fan-out            ; 3                ;
 ; Average fan-out          ; 0.50             ;
 +--------------------------+------------------+
 
@@ -257,7 +257,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
-; |mips_single               ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 35   ; 0            ; |mips_single        ; work         ;
+; |mips_single               ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 3    ; 0            ; |mips_single        ; work         ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -2041,7 +2041,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Thu Oct 29 17:12:35 2015
+    Info: Processing started: Thu Oct 29 20:53:24 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off mips_single -c mips_single
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file /users/colin/documents/uf/fall 2015/digital computer architecture/lab 3/data_memory_wrapper.vhd
@@ -2096,10 +2096,9 @@ Info (12021): Found 2 design units, including 1 entities, in source file data_me
     Info (12022): Found design unit 1: data_memory-SYN
     Info (12023): Found entity 1: data_memory
 Info (12127): Elaborating entity "mips_single" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at mips_single.vhd(17): used implicit default value for signal "instruction_out" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10036): Verilog HDL or VHDL warning at mips_single.vhd(44): object "alu_carry" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at mips_single.vhd(46): object "alu_sign" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at mips_single.vhd(47): object "alu_overflow" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at mips_single.vhd(43): object "alu_carry" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at mips_single.vhd(45): object "alu_sign" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at mips_single.vhd(46): object "alu_overflow" assigned a value but never read
 Info (12128): Elaborating entity "instr_memory" for hierarchy "instr_memory:U_INSTR_MEMORY"
 Info (12128): Elaborating entity "altsyncram" for hierarchy "instr_memory:U_INSTR_MEMORY|altsyncram:altsyncram_component"
 Info (12130): Elaborated megafunction instantiation "instr_memory:U_INSTR_MEMORY|altsyncram:altsyncram_component"
@@ -2157,8 +2156,6 @@ Info (12133): Instantiated megafunction "instr_memory:U_INSTR_MEMORY|altsyncram:
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ogs3.tdf
     Info (12023): Found entity 1: altsyncram_ogs3
 Info (12128): Elaborating entity "altsyncram_ogs3" for hierarchy "instr_memory:U_INSTR_MEMORY|altsyncram:altsyncram_component|altsyncram_ogs3:auto_generated"
-Warning (113031): 1 out of 256 addresses are reinitialized. The latest initialized data will replace the existing data. There are 1 warnings found, and 1 warnings are reported.
-    Warning (113030): Memory Initialization File address 4 is reinitialized
 Info (12128): Elaborating entity "mux2" for hierarchy "mux2:U_JUMP_ADDRESS_MUX"
 Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:U_PC"
 Info (12128): Elaborating entity "reg_bit" for hierarchy "program_counter:U_PC|reg_bit:U_DELAY_CYCLE"
@@ -2297,39 +2294,6 @@ Warning (14284): Synthesized away the following node(s):
         Warning (14320): Synthesized away node "instr_memory:U_INSTR_MEMORY|altsyncram:altsyncram_component|altsyncram_ogs3:auto_generated|q_a[29]"
         Warning (14320): Synthesized away node "instr_memory:U_INSTR_MEMORY|altsyncram:altsyncram_component|altsyncram_ogs3:auto_generated|q_a[30]"
         Warning (14320): Synthesized away node "instr_memory:U_INSTR_MEMORY|altsyncram:altsyncram_component|altsyncram_ogs3:auto_generated|q_a[31]"
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "instruction_out[0]" is stuck at GND
-    Warning (13410): Pin "instruction_out[1]" is stuck at GND
-    Warning (13410): Pin "instruction_out[2]" is stuck at GND
-    Warning (13410): Pin "instruction_out[3]" is stuck at GND
-    Warning (13410): Pin "instruction_out[4]" is stuck at GND
-    Warning (13410): Pin "instruction_out[5]" is stuck at GND
-    Warning (13410): Pin "instruction_out[6]" is stuck at GND
-    Warning (13410): Pin "instruction_out[7]" is stuck at GND
-    Warning (13410): Pin "instruction_out[8]" is stuck at GND
-    Warning (13410): Pin "instruction_out[9]" is stuck at GND
-    Warning (13410): Pin "instruction_out[10]" is stuck at GND
-    Warning (13410): Pin "instruction_out[11]" is stuck at GND
-    Warning (13410): Pin "instruction_out[12]" is stuck at GND
-    Warning (13410): Pin "instruction_out[13]" is stuck at GND
-    Warning (13410): Pin "instruction_out[14]" is stuck at GND
-    Warning (13410): Pin "instruction_out[15]" is stuck at GND
-    Warning (13410): Pin "instruction_out[16]" is stuck at GND
-    Warning (13410): Pin "instruction_out[17]" is stuck at GND
-    Warning (13410): Pin "instruction_out[18]" is stuck at GND
-    Warning (13410): Pin "instruction_out[19]" is stuck at GND
-    Warning (13410): Pin "instruction_out[20]" is stuck at GND
-    Warning (13410): Pin "instruction_out[21]" is stuck at GND
-    Warning (13410): Pin "instruction_out[22]" is stuck at GND
-    Warning (13410): Pin "instruction_out[23]" is stuck at GND
-    Warning (13410): Pin "instruction_out[24]" is stuck at GND
-    Warning (13410): Pin "instruction_out[25]" is stuck at GND
-    Warning (13410): Pin "instruction_out[26]" is stuck at GND
-    Warning (13410): Pin "instruction_out[27]" is stuck at GND
-    Warning (13410): Pin "instruction_out[28]" is stuck at GND
-    Warning (13410): Pin "instruction_out[29]" is stuck at GND
-    Warning (13410): Pin "instruction_out[30]" is stuck at GND
-    Warning (13410): Pin "instruction_out[31]" is stuck at GND
 Info (17049): 1126 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -2337,13 +2301,13 @@ Warning (21074): Design contains 3 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "clk"
     Warning (15610): No output dependent on input pin "mem_clk"
     Warning (15610): No output dependent on input pin "rst"
-Info (21057): Implemented 35 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 32 output pins
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 110 warnings
-    Info: Peak virtual memory: 606 megabytes
-    Info: Processing ended: Thu Oct 29 17:12:39 2015
-    Info: Elapsed time: 00:00:04
+    Info (21059): Implemented 0 output pins
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 74 warnings
+    Info: Peak virtual memory: 615 megabytes
+    Info: Processing ended: Thu Oct 29 20:53:27 2015
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 
 
