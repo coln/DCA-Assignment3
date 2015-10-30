@@ -40,21 +40,7 @@ architecture arch of data_memory_wrapper is
 	type addr_wrap_array is array (0 to 3) of std_logic_vector(WIDTH-1 downto 0);
 	signal addr_wrap_around : addr_wrap_array;
 	
-	-- Outputs
-	---------------------------------------------
-	signal byte_mux_rd : std_logic_vector(WIDTH-1 downto 0);
-	signal half_mux_rd : std_logic_vector(WIDTH-1 downto 0);
-	signal half_mux_rd_temp0 : std_logic_vector((WIDTH/2)-1 downto 0);
-	signal half_mux_rd_temp1 : std_logic_vector((WIDTH/2)-1 downto 0);
-	signal half_mux_rd_temp2 : std_logic_vector((WIDTH/2)-1 downto 0);
-	signal half_mux_rd_temp3 : std_logic_vector((WIDTH/2)-1 downto 0);
-	signal word_mux_rd : std_logic_vector(WIDTH-1 downto 0);
-	signal word_mux_rd_temp0 : std_logic_vector(WIDTH-1 downto 0);
-	signal word_mux_rd_temp1 : std_logic_vector(WIDTH-1 downto 0);
-	signal word_mux_rd_temp2 : std_logic_vector(WIDTH-1 downto 0);
-	signal word_mux_rd_temp3 : std_logic_vector(WIDTH-1 downto 0);
-	signal mem_data_sel : std_logic_vector(1 downto 0);
-	signal mem_data : std_logic_vector(WIDTH-1 downto 0);
+	-- Output
 	signal mem_output : std_logic_vector(WIDTH-1 downto 0);
 begin
 	
@@ -62,51 +48,49 @@ begin
 	notclk <= not clk;
 	
 	-- The memory blocks are ordered sequentially by address 0, 1, 2, 3, 4....
-	-- While the data is order by MSB->LSB (3, 2, 1, 0)
+	-- While the data is order by MSB->LSB (3, 2, 1, 0) (Big Endian)
 	process(address, data, rden, wren, byte, half)
+		variable sel : std_logic_vector(3 downto 0);
 	begin
 		write_output <= (others => '0');
-		if(byte = '1') then
-			case address(1 downto 0) is
-				when "00" =>
-					write_output(31 downto 24) <= data(7 downto 0);
-				when "01" =>
-					write_output(23 downto 16) <= data(7 downto 0);
-				when "10" =>
-					write_output(15 downto 8) <= data(7 downto 0);
-				when "11" =>
-					write_output(7 downto 0) <= data(7 downto 0);
-				when others => null;
-			end case;
-		elsif(half = '1') then
-			case address(1 downto 0) is
-				when "00" =>
-					write_output(31 downto 16) <= data(15 downto 0);
-				when "01" =>
-					write_output(23 downto 8) <= data(15 downto 0);
-				when "10" =>
-					write_output(15 downto 0) <= data(15 downto 0);
-				when "11" =>
-					write_output(7 downto 0) <= data(15 downto 8);
-					write_output(31 downto 24) <= data(7 downto 0);
-				when others => null;
-			end case;
-		else
-			case address(1 downto 0) is
-				when "00" =>
-					write_output <= data;
-				when "01" =>
-					write_output(23 downto 0) <= data(31 downto 8);
-					write_output(31 downto 24) <= data(7 downto 0);
-				when "10" =>
-					write_output(15 downto 0) <= data(31 downto 16);
-					write_output(31 downto 16) <= data(15 downto 0);
-				when "11" =>
-					write_output(7 downto 0) <= data(31 downto 24);
-					write_output(31 downto 8) <= data(23 downto 0);
-				when others => null;
-			end case;
-		end if;
+		sel := byte & half & address(1 downto 0);
+		case sel is
+			-- Byte = 1
+			when "1000" =>
+				write_output(31 downto 24) <= data(7 downto 0);
+			when "1001" =>
+				write_output(23 downto 16) <= data(7 downto 0);
+			when "1010" =>
+				write_output(15 downto 8) <= data(7 downto 0);
+			when "1011" =>
+				write_output(7 downto 0) <= data(7 downto 0);
+			
+			-- Half word = 1
+			when "0100" =>
+				write_output(31 downto 16) <= data(15 downto 0);
+			when "0101" =>
+				write_output(23 downto 8) <= data(15 downto 0);
+			when "0110" =>
+				write_output(15 downto 0) <= data(15 downto 0);
+			when "0111" =>
+				write_output(7 downto 0) <= data(15 downto 8);
+				write_output(31 downto 24) <= data(7 downto 0);
+			
+			-- Full word
+			when "0000" =>
+				write_output <= data;
+			when "0001" =>
+				write_output(23 downto 0) <= data(31 downto 8);
+				write_output(31 downto 24) <= data(7 downto 0);
+			when "0010" =>
+				write_output(15 downto 0) <= data(31 downto 16);
+				write_output(31 downto 16) <= data(15 downto 0);
+			when "0011" =>
+				write_output(7 downto 0) <= data(31 downto 24);
+				write_output(31 downto 8) <= data(23 downto 0);
+				
+			when others => null;
+		end case;
 	end process;
 	
 	-- Only enable memories when in address range of DATA_BASE_ADDR
@@ -196,48 +180,48 @@ begin
 	
 	-- Now do the same thing for reads
 	process(address, data, rden, wren, byte, half, mem_output)
+		variable sel : std_logic_vector(3 downto 0);
 	begin
 		output <= (others => '0');
 		-- Only output if reading (the altsyncram doesn't clear mem_output
 		-- for some reason)
 		if(rden = '1') then
-			if(byte = '1') then
-				case address(1 downto 0) is
-					when "00" =>
-						output(7 downto 0) <= mem_output(31 downto 24);
-					when "01" =>
-						output(7 downto 0) <= mem_output(23 downto 16);
-					when "10" =>
-						output(7 downto 0) <= mem_output(15 downto 8);
-					when "11" =>
-						output(7 downto 0) <= mem_output(7 downto 0);
-					when others => null;
-				end case;
-			elsif(half = '1') then
-				case address(1 downto 0) is
-					when "00" =>
-						output(15 downto 0) <= mem_output(31 downto 16);
-					when "01" =>
-						output(15 downto 0) <= mem_output(23 downto 8);
-					when "10" =>
-						output(15 downto 0) <= mem_output(15 downto 0);
-					when "11" =>
-						output(15 downto 0) <= mem_output(7 downto 0) & mem_output(31 downto 24);
-					when others => null;
-				end case;
-			else
-				case address(1 downto 0) is
-					when "00" =>
-						output(31 downto 0) <= mem_output(31 downto 0);
-					when "01" =>
-						output(31 downto 0) <= mem_output(23 downto 0) & mem_output(31 downto 24);
-					when "10" =>
-						output(31 downto 0) <= mem_output(15 downto 0) & mem_output(31 downto 16);
-					when "11" =>
-						output(31 downto 0) <= mem_output(7 downto 0) & mem_output(31 downto 8);
-					when others => null;
-				end case;
-			end if;
+			sel := byte & half & address(1 downto 0);
+			case sel is
+				-- Byte = 1
+				when "1000" =>
+					output(7 downto 0) <= mem_output(31 downto 24);
+				when "1001" =>
+					output(7 downto 0) <= mem_output(23 downto 16);
+				when "1010" =>
+					output(7 downto 0) <= mem_output(15 downto 8);
+				when "1011" =>
+					output(7 downto 0) <= mem_output(7 downto 0);
+				
+				-- Half word = 1
+				when "0100" =>
+					output(15 downto 0) <= mem_output(31 downto 16);
+				when "0101" =>
+					output(15 downto 0) <= mem_output(23 downto 8);
+				when "0110" =>
+					output(15 downto 0) <= mem_output(15 downto 0);
+				when "0111" =>
+					output(15 downto 0) <= mem_output(7 downto 0) & mem_output(31 downto 24);
+			
+			
+				-- Full word
+				when "0000" =>
+					output(31 downto 0) <= mem_output(31 downto 0);
+				when "0001" =>
+					output(31 downto 0) <= mem_output(23 downto 0) & mem_output(31 downto 24);
+				when "0010" =>
+					output(31 downto 0) <= mem_output(15 downto 0) & mem_output(31 downto 16);
+				when "0011" =>
+					output(31 downto 0) <= mem_output(7 downto 0) & mem_output(31 downto 8);
+					
+				when others => null;
+			end case;
+			
 		end if;
 	end process;
 
